@@ -1,0 +1,615 @@
+/* ==========================================================================
+   Refero UI — a no-build component library
+   Plain CSS. Every value below is traceable to TARGET-SPEC.md.
+
+   Contents
+   01. Tokens (light / dark)
+   02. Reset + base
+   03. Typography
+   04. Actions ....... button, button group, kbd
+   05. Forms ......... field, input, textarea, select, search, checkbox,
+                       radio, switch, slider
+   06. Selection ..... chip, badge, segmented, tabs, menu
+   07. Containers .... card, media card, card grid, accordion, table, empty
+   08. Overlays ...... modal, popover, tooltip, toast, command palette
+   09. Feedback ...... avatar, skeleton, progress, spinner, alert,
+                       breadcrumb, pagination, divider, theme toggle
+   10. Showcase page chrome (.rui-doc-*)
+   ========================================================================== */
+
+/* ==========================================================================
+   01. TOKENS
+   ========================================================================== */
+
+:root {
+  /* --- neutral ramp: blue-biased, not neutral grey --------------------- */
+  --rui-gray-solid-0: #fff;
+  --rui-gray-solid-100: #f7f8fb;
+  --rui-gray-solid-200: #eef0f6;
+  --rui-gray-solid-300: #dddfea;
+  --rui-gray-solid-400: #c2c6d7;
+  --rui-gray-solid-500: #9fa5ba;
+  --rui-gray-solid-600: #777d90;
+  --rui-gray-solid-700: #525769;
+  --rui-gray-solid-800: #2d313f;
+  --rui-gray-solid-900: #13151b;
+
+  --rui-gray-alpha-0: #fff;
+  --rui-gray-alpha-100: rgba(55, 80, 155, 0.039);
+  --rui-gray-alpha-200: rgba(12, 41, 126, 0.071);
+  --rui-gray-alpha-300: rgba(12, 26, 105, 0.141);
+  --rui-gray-alpha-400: rgba(1, 17, 88, 0.239);
+  --rui-gray-alpha-500: rgba(2, 18, 73, 0.38);
+  --rui-gray-alpha-600: rgba(3, 14, 49, 0.541);
+  --rui-gray-alpha-700: rgba(1, 8, 34, 0.678);
+  --rui-gray-alpha-800: rgba(2, 7, 24, 0.831);
+  --rui-gray-alpha-900: #2d313f;
+
+  --rui-surface-elevated: #fff;
+  --rui-color-background: #fff;
+  --rui-color-accent: #000;
+
+  /* --- status ---------------------------------------------------------- */
+  --rui-green: #059669;
+  --rui-green-alpha: rgba(16, 185, 129, 0.08);
+  --rui-red: #d93655;
+  --rui-red-alpha: rgba(244, 63, 94, 0.07);
+  --rui-amber: #d98f0a;
+  --rui-amber-alpha: rgba(245, 158, 11, 0.1);
+
+  /* --- shadows: navy-tinted, never neutral black ----------------------- */
+  --rui-shadow-sm: 0 1px 3px 0 rgba(12, 41, 126, 0.09), 0 0 1px 0.4px rgba(12, 41, 126, 0.031);
+  --rui-shadow-md: 0 3px 8px 0 rgba(12, 41, 126, 0.09), 0 0 1px 0.4px rgba(12, 41, 126, 0.031);
+  --rui-shadow-lg: 0 8px 20px 0 rgba(12, 41, 126, 0.09);
+  --rui-shadow-modal: 0 0 1px 0.4px rgba(12, 41, 126, 0.1), 0 8px 20px rgba(12, 41, 126, 0.09);
+  --rui-scrim: rgba(12, 26, 105, 0.28);
+
+  /* --- semantic aliases (verbatim from the sheet) ---------------------- */
+  --rui-fill-base: var(--rui-gray-solid-0);
+  --rui-fill-subtle: var(--rui-gray-solid-100);
+  --rui-fill-muted: var(--rui-gray-solid-200);
+  --rui-fill-moderate: var(--rui-gray-solid-300);
+  --rui-fill-strong: var(--rui-gray-solid-900);
+  --rui-fill-elevated: var(--rui-surface-elevated);
+
+  --rui-text-primary: var(--rui-gray-solid-900);
+  --rui-text-secondary: var(--rui-gray-alpha-600);
+  --rui-text-tertiary: var(--rui-gray-alpha-400);
+  --rui-text-quaternary: var(--rui-gray-alpha-200);
+  --rui-text-on-button: var(--rui-gray-solid-0);
+
+  --rui-stroke-primary: var(--rui-gray-solid-900);
+  --rui-stroke-secondary: var(--rui-gray-alpha-600);
+  --rui-stroke-tertiary: var(--rui-gray-alpha-400);
+  --rui-stroke-quaternary: var(--rui-gray-alpha-200);
+  --rui-stroke-on-button: var(--rui-gray-solid-0);
+
+  /* --- hairlines + rings ----------------------------------------------- */
+  --rui-hairline: inset 0 0 0 1px var(--rui-gray-alpha-200);
+  --rui-hairline-soft: inset 0 0 0 1px var(--rui-gray-alpha-100);
+  --rui-hairline-strong: inset 0 0 0 1px var(--rui-gray-alpha-300);
+  --rui-ring: 0 0 0 2px var(--rui-gray-alpha-400);
+
+  /* --- type ------------------------------------------------------------ */
+  --rui-font-sans: "Instrument Sans", ui-sans-serif, system-ui, -apple-system,
+    "Segoe UI", Roboto, Helvetica, Arial, "Apple Color Emoji", sans-serif;
+  --rui-font-serif: "Instrument Serif", ui-serif, Georgia, "Times New Roman",
+    Times, serif;
+  --rui-font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas,
+    "Liberation Mono", monospace;
+
+  --rui-track-tight: -0.02em;
+  --rui-track-sm: -0.015em;
+  --rui-track-md: -0.0225em;
+  --rui-track-lg: -0.025em;
+  --rui-track-xl: -0.0275em;
+  --rui-track-2xl: -0.03em;
+
+  /* --- radii: generous -------------------------------------------------- */
+  --rui-r-xs: 4px;
+  --rui-r-sm: 8px;
+  --rui-r-md: 12px;
+  --rui-r-lg: 16px;
+  --rui-r-xl: 20px;
+  --rui-r-2xl: 24px;
+  --rui-r-3xl: 32px;
+  --rui-r-full: 999px;
+
+  /* --- motion ----------------------------------------------------------- */
+  --rui-t: all 0.2s ease;
+  --rui-t-slow: all 0.3s ease;
+  --rui-ease-expressive: cubic-bezier(0.625, 0.05, 0, 1);
+
+  /* --- spacing ---------------------------------------------------------- */
+  --rui-s1: 4px;
+  --rui-s2: 8px;
+  --rui-s3: 12px;
+  --rui-s4: 16px;
+  --rui-s5: 20px;
+  --rui-s6: 24px;
+  --rui-s8: 32px;
+  --rui-s10: 40px;
+  --rui-s12: 48px;
+  --rui-s16: 64px;
+
+  color-scheme: light;
+}
+
+/* Dark — system preference, unless an explicit light choice overrides it */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --rui-gray-solid-0: #101216;
+    --rui-gray-solid-100: #1a1c23;
+    --rui-gray-solid-200: #23242a;
+    --rui-gray-solid-300: #2c303b;
+    --rui-gray-solid-400: #373e50;
+    --rui-gray-solid-500: #4b546b;
+    --rui-gray-solid-600: #6d768e;
+    --rui-gray-solid-700: #979fb9;
+    --rui-gray-solid-800: #ced7ee;
+    --rui-gray-solid-900: #fff;
+
+    --rui-gray-alpha-0: #13151a;
+    --rui-gray-alpha-100: rgba(186, 192, 239, 0.059);
+    --rui-gray-alpha-200: rgba(222, 210, 241, 0.092);
+    --rui-gray-alpha-300: rgba(185, 201, 247, 0.165);
+    --rui-gray-alpha-400: rgba(172, 194, 253, 0.251);
+    --rui-gray-alpha-500: rgba(177, 198, 254, 0.366);
+    --rui-gray-alpha-600: rgba(196, 211, 254, 0.517);
+    --rui-gray-alpha-700: rgba(209, 219, 255, 0.701);
+    --rui-gray-alpha-800: rgba(221, 230, 255, 0.929);
+    --rui-gray-alpha-900: #fff;
+
+    --rui-surface-elevated: #2a2d37;
+    --rui-color-background: #13151a;
+    --rui-color-accent: #fff;
+
+    --rui-green: #10b981;
+    --rui-green-alpha: rgba(52, 211, 153, 0.16);
+    --rui-red: #f43f5e;
+    --rui-red-alpha: rgba(251, 113, 133, 0.25);
+    --rui-amber: #f59e0b;
+    --rui-amber-alpha: rgba(251, 191, 36, 0.17);
+
+    --rui-shadow-sm: 0 1px 3px 0 rgba(3, 7, 26, 0.5), 0 0 1px 0.4px rgba(3, 7, 26, 0.4);
+    --rui-shadow-md: 0 3px 8px 0 rgba(3, 7, 26, 0.55), 0 0 1px 0.4px rgba(3, 7, 26, 0.4);
+    --rui-shadow-lg: 0 8px 20px 0 rgba(3, 7, 26, 0.6);
+    --rui-shadow-modal: 0 0 1px 0.4px rgba(3, 7, 26, 0.5), 0 8px 20px rgba(3, 7, 26, 0.6);
+    --rui-scrim: rgba(6, 9, 22, 0.66);
+
+    color-scheme: dark;
+  }
+}
+
+/* Dark — explicit choice, wins over a light system preference */
+:root[data-theme="dark"] {
+  --rui-gray-solid-0: #101216;
+  --rui-gray-solid-100: #1a1c23;
+  --rui-gray-solid-200: #23242a;
+  --rui-gray-solid-300: #2c303b;
+  --rui-gray-solid-400: #373e50;
+  --rui-gray-solid-500: #4b546b;
+  --rui-gray-solid-600: #6d768e;
+  --rui-gray-solid-700: #979fb9;
+  --rui-gray-solid-800: #ced7ee;
+  --rui-gray-solid-900: #fff;
+
+  --rui-gray-alpha-0: #13151a;
+  --rui-gray-alpha-100: rgba(186, 192, 239, 0.059);
+  --rui-gray-alpha-200: rgba(222, 210, 241, 0.092);
+  --rui-gray-alpha-300: rgba(185, 201, 247, 0.165);
+  --rui-gray-alpha-400: rgba(172, 194, 253, 0.251);
+  --rui-gray-alpha-500: rgba(177, 198, 254, 0.366);
+  --rui-gray-alpha-600: rgba(196, 211, 254, 0.517);
+  --rui-gray-alpha-700: rgba(209, 219, 255, 0.701);
+  --rui-gray-alpha-800: rgba(221, 230, 255, 0.929);
+  --rui-gray-alpha-900: #fff;
+
+  --rui-surface-elevated: #2a2d37;
+  --rui-color-background: #13151a;
+  --rui-color-accent: #fff;
+
+  --rui-green: #10b981;
+  --rui-green-alpha: rgba(52, 211, 153, 0.16);
+  --rui-red: #f43f5e;
+  --rui-red-alpha: rgba(251, 113, 133, 0.25);
+  --rui-amber: #f59e0b;
+  --rui-amber-alpha: rgba(251, 191, 36, 0.17);
+
+  --rui-shadow-sm: 0 1px 3px 0 rgba(3, 7, 26, 0.5), 0 0 1px 0.4px rgba(3, 7, 26, 0.4);
+  --rui-shadow-md: 0 3px 8px 0 rgba(3, 7, 26, 0.55), 0 0 1px 0.4px rgba(3, 7, 26, 0.4);
+  --rui-shadow-lg: 0 8px 20px 0 rgba(3, 7, 26, 0.6);
+  --rui-shadow-modal: 0 0 1px 0.4px rgba(3, 7, 26, 0.5), 0 8px 20px rgba(3, 7, 26, 0.6);
+  --rui-scrim: rgba(6, 9, 22, 0.66);
+
+  color-scheme: dark;
+}
+
+/* ==========================================================================
+   02. RESET + BASE
+   ========================================================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--rui-color-background);
+  color: var(--rui-text-primary);
+  font-family: var(--rui-font-sans);
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: var(--rui-track-tight);
+  font-synthesis-weight: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+img,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  letter-spacing: inherit;
+  color: inherit;
+  margin: 0;
+}
+
+:where(a) {
+  color: inherit;
+}
+
+::selection {
+  background: var(--rui-gray-alpha-300);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Screen-reader-only, but focusable when it needs to be */
+.rui-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ==========================================================================
+   03. TYPOGRAPHY
+   ========================================================================== */
+
+.rui-display {
+  font-family: var(--rui-font-serif);
+  font-weight: 400;
+  font-size: clamp(40px, 7vw, 64px);
+  line-height: 1.02;
+  letter-spacing: var(--rui-track-2xl);
+  margin: 0;
+}
+
+.rui-h1 {
+  font-size: clamp(32px, 5vw, 50px);
+  line-height: 1.08;
+  letter-spacing: var(--rui-track-xl);
+  font-weight: 600;
+  margin: 0;
+}
+
+.rui-h2 {
+  font-size: 32px;
+  line-height: 1.15;
+  letter-spacing: var(--rui-track-lg);
+  font-weight: 600;
+  margin: 0;
+}
+
+.rui-h3 {
+  font-size: 25px;
+  line-height: 1.2;
+  letter-spacing: var(--rui-track-md);
+  font-weight: 600;
+  margin: 0;
+}
+
+.rui-h4 {
+  font-size: 20px;
+  line-height: 1.3;
+  letter-spacing: var(--rui-track-md);
+  font-weight: 600;
+  margin: 0;
+}
+
+.rui-body {
+  font-size: 16px;
+  line-height: 1.55;
+  letter-spacing: var(--rui-track-tight);
+  margin: 0;
+}
+
+.rui-small {
+  font-size: 14px;
+  line-height: 1.5;
+  letter-spacing: var(--rui-track-sm);
+  margin: 0;
+}
+
+.rui-label {
+  font-size: 12px;
+  line-height: 1.4;
+  letter-spacing: var(--rui-track-sm);
+  font-weight: 500;
+  margin: 0;
+}
+
+.rui-eyebrow {
+  font-size: 12px;
+  line-height: 1.4;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: var(--rui-text-tertiary);
+  margin: 0;
+}
+
+.rui-muted {
+  color: var(--rui-text-secondary);
+}
+
+.rui-serif {
+  font-family: var(--rui-font-serif);
+  font-weight: 400;
+}
+
+/* ==========================================================================
+   04. ACTIONS
+   ========================================================================== */
+
+.rui-btn {
+  --_h: 40px;
+  --_px: 16px;
+  --_fs: 14px;
+  --_r: var(--rui-r-sm);
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--rui-s2);
+  height: var(--_h);
+  padding: 0 var(--_px);
+  border: 0;
+  border-radius: var(--_r);
+  background: transparent;
+  font-family: inherit;
+  font-size: var(--_fs);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: var(--rui-track-sm);
+  white-space: nowrap;
+  text-decoration: none;
+  cursor: pointer;
+  user-select: none;
+  transition: var(--rui-t);
+}
+
+.rui-btn:focus {
+  outline: none;
+}
+
+.rui-btn > svg {
+  flex: none;
+  width: 16px;
+  height: 16px;
+}
+
+.rui-btn--sm {
+  --_h: 32px;
+  --_px: 12px;
+  --_fs: 13px;
+}
+
+.rui-btn--lg {
+  --_h: 48px;
+  --_px: 22px;
+  --_fs: 16px;
+  --_r: var(--rui-r-md);
+}
+
+.rui-btn--icon {
+  --_px: 0;
+  width: var(--_h);
+}
+
+.rui-btn--round {
+  --_r: var(--rui-r-full);
+}
+
+/* primary — monochrome: black on white, white on black */
+.rui-btn--primary {
+  background: var(--rui-fill-strong);
+  color: var(--rui-text-on-button);
+}
+
+.rui-btn--primary:hover {
+  background: var(--rui-gray-solid-800);
+}
+
+.rui-btn--primary:active {
+  background: var(--rui-gray-solid-700);
+}
+
+/* secondary — hairline drawn with an inset shadow, so hover never shifts */
+.rui-btn--secondary {
+  background: var(--rui-fill-elevated);
+  color: var(--rui-text-primary);
+  box-shadow: var(--rui-hairline-strong), var(--rui-shadow-sm);
+}
+
+.rui-btn--secondary:hover {
+  background: var(--rui-fill-subtle);
+  box-shadow: var(--rui-hairline-strong), var(--rui-shadow-md);
+}
+
+.rui-btn--secondary:active {
+  background: var(--rui-fill-muted);
+}
+
+.rui-btn--ghost {
+  color: var(--rui-text-primary);
+}
+
+.rui-btn--ghost:hover {
+  background: var(--rui-gray-alpha-200);
+}
+
+.rui-btn--ghost:active {
+  background: var(--rui-gray-alpha-300);
+}
+
+.rui-btn--danger {
+  background: var(--rui-red);
+  color: #fff;
+}
+
+.rui-btn--danger:hover {
+  filter: brightness(1.08);
+}
+
+.rui-btn--danger:active {
+  filter: brightness(0.94);
+}
+
+.rui-btn:focus-visible {
+  box-shadow: var(--rui-ring);
+}
+
+.rui-btn--secondary:focus-visible {
+  box-shadow: var(--rui-hairline-strong), var(--rui-ring);
+}
+
+.rui-btn:disabled,
+.rui-btn[aria-disabled="true"] {
+  cursor: not-allowed;
+  opacity: 0.42;
+  pointer-events: none;
+}
+
+/* loading: label hides, a spinner takes the centre, width stays put */
+.rui-btn[data-loading="true"] {
+  cursor: progress;
+  pointer-events: none;
+  color: transparent;
+}
+
+.rui-btn[data-loading="true"] > * {
+  visibility: hidden;
+}
+
+.rui-btn[data-loading="true"]::after {
+  content: "";
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  border: 1.5px solid currentColor;
+  border-top-color: transparent;
+  animation: rui-spin 0.7s linear infinite;
+}
+
+.rui-btn--primary[data-loading="true"]::after,
+.rui-btn--danger[data-loading="true"]::after {
+  border-color: var(--rui-stroke-on-button);
+  border-top-color: transparent;
+}
+
+.rui-btn--secondary[data-loading="true"]::after,
+.rui-btn--ghost[data-loading="true"]::after {
+  border-color: var(--rui-text-secondary);
+  border-top-color: transparent;
+}
+
+@keyframes rui-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* --- button group: hairlines collapse into one seam ------------------- */
+.rui-btn-group {
+  display: inline-flex;
+  align-items: stretch;
+  border-radius: var(--rui-r-sm);
+  box-shadow: var(--rui-hairline-strong);
+  overflow: hidden;
+}
+
+.rui-btn-group > .rui-btn {
+  border-radius: 0;
+  box-shadow: none;
+  background: var(--rui-fill-elevated);
+}
+
+.rui-btn-group > .rui-btn + .rui-btn {
+  box-shadow: inset 1px 0 0 0 var(--rui-gray-alpha-300);
+}
+
+.rui-btn-group > .rui-btn:hover {
+  background: var(--rui-fill-subtle);
+}
+
+.rui-btn-group > .rui-btn:focus-visible {
+  z-index: 1;
+  box-shadow: var(--rui-ring);
+}
+
+.rui-btn-group > .rui-btn[aria-pressed="true"] {
+  background: var(--rui-fill-strong);
+  color: var(--rui-text-on-button);
+}
+
+/* --- kbd -------------------------------------------------------------- */
+.rui-kbd {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 22px;
+  height: 22px;
+  padding: 0 6px;
+  border-radius: var(--rui-r-xs);
+  background: var(--rui-fill-elevated);
+  box-shadow: var(--rui-hairline-strong), 0 1px 0 0 var(--rui-gray-alpha-200);
+  color: var(--rui-text-secondary);
+  font-family: var(--rui-font-sans);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0;
+}
