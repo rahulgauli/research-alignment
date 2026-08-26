@@ -1,0 +1,1381 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Refero UI — component library</title>
+<meta name="description" content="A no-build HTML, CSS and JavaScript component library: 38 accessible components, two fully designed themes, three files, zero dependencies.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="refero-ui.css">
+<script src="refero-ui.js" defer></script>
+</head>
+<body>
+
+<a class="rui-doc-skip" href="#main">Skip to content</a>
+
+<header class="rui-doc-bar">
+  <div class="rui-doc-bar__inner">
+    <a class="rui-doc-brand" href="#overview">
+      <span class="rui-doc-brand__mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3 8.5 4.8L12 12.6 3.5 7.8 12 3Z"/><path d="m3.5 12.4 8.5 4.8 8.5-4.8"/><path d="m3.5 16.6 8.5 4.8 8.5-4.8"/></svg></span>
+      <span class="rui-doc-brand__name">Refero UI</span>
+      <span class="rui-doc-brand__tag">v1.0 · no build</span>
+    </a>
+    <button class="rui-btn rui-btn--secondary rui-btn--sm rui-doc-cmd" data-rui-palette-open aria-label="Search commands"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/></svg><span class="rui-doc-cmd__label">Commands</span><kbd class="rui-kbd">⌘</kbd><kbd class="rui-kbd">K</kbd></button>
+    <div class="rui-theme-toggle" data-rui-theme-toggle aria-label="Colour theme">
+      <button class="rui-theme-toggle__opt" data-theme-value="light" aria-label="Light theme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M2.5 12h2M19.5 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4"/></svg></button>
+      <button class="rui-theme-toggle__opt" data-theme-value="dark" aria-label="Dark theme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.2A8.2 8.2 0 0 1 9.8 4 8.4 8.4 0 1 0 20 14.2Z"/></svg></button>
+      <button class="rui-theme-toggle__opt" data-theme-value="system" aria-label="Match system theme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="4" width="19" height="13" rx="2"/><path d="M8.5 20.5h7M12 17v3.5"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<div class="rui-doc-shell">
+  <nav class="rui-doc-side" data-rui-scrollspy aria-label="Components">
+      <div class="rui-doc-side__group">
+        <p class="rui-doc-side__title">Foundations</p>
+        <a class="rui-doc-side__link" href="#overview">Overview</a>
+        <a class="rui-doc-side__link" href="#color">Color</a>
+        <a class="rui-doc-side__link" href="#typography">Typography</a>
+      </div>
+      <div class="rui-doc-side__group">
+        <p class="rui-doc-side__title">Actions</p>
+        <a class="rui-doc-side__link" href="#buttons">Button</a>
+        <a class="rui-doc-side__link" href="#button-group">Button group</a>
+      </div>
+      <div class="rui-doc-side__group">
+        <p class="rui-doc-side__title">Forms</p>
+        <a class="rui-doc-side__link" href="#text-fields">Text fields</a>
+        <a class="rui-doc-side__link" href="#choice">Choice</a>
+        <a class="rui-doc-side__link" href="#slider">Slider</a>
+      </div>
+      <div class="rui-doc-side__group">
+        <p class="rui-doc-side__title">Selection</p>
+        <a class="rui-doc-side__link" href="#chips">Chips &amp; badges</a>
+        <a class="rui-doc-side__link" href="#segmented">Segmented &amp; tabs</a>
+        <a class="rui-doc-side__link" href="#menu">Menu</a>
+      </div>
+      <div class="rui-doc-side__group">
+        <p class="rui-doc-side__title">Containers</p>
+        <a class="rui-doc-side__link" href="#cards">Card</a>
+        <a class="rui-doc-side__link" href="#media-cards">Media card</a>
+        <a class="rui-doc-side__link" href="#accordion">Accordion</a>
+        <a class="rui-doc-side__link" href="#table">Table</a>
+        <a class="rui-doc-side__link" href="#empty">Empty state</a>
+      </div>
+      <div class="rui-doc-side__group">
+        <p class="rui-doc-side__title">Overlays</p>
+        <a class="rui-doc-side__link" href="#modal">Modal</a>
+        <a class="rui-doc-side__link" href="#popover">Popover &amp; tooltip</a>
+        <a class="rui-doc-side__link" href="#toast">Toast</a>
+        <a class="rui-doc-side__link" href="#palette">Command palette</a>
+      </div>
+      <div class="rui-doc-side__group">
+        <p class="rui-doc-side__title">Feedback</p>
+        <a class="rui-doc-side__link" href="#avatars">Avatar</a>
+        <a class="rui-doc-side__link" href="#loading">Loading</a>
+        <a class="rui-doc-side__link" href="#alerts">Alert</a>
+        <a class="rui-doc-side__link" href="#navigation">Navigation</a>
+      </div>
+  </nav>
+
+  <main class="rui-doc-main" id="main">
+    <section class="rui-doc-hero" id="overview" aria-labelledby="overview-h">
+      <p class="rui-eyebrow">Component library · HTML · CSS · JavaScript</p>
+      <h1 class="rui-display rui-doc-hero__title" id="overview-h">Everything you need, nothing to install</h1>
+      <p class="rui-doc-hero__lede">Thirty-eight components in three files. No bundler, no package manager, no framework — link a stylesheet, add a script, open the page. Every component is driven by design tokens, works in light and dark, and is operable from the keyboard.</p>
+      <div class="rui-doc-hero__actions">
+        <a class="rui-btn rui-btn--primary rui-btn--lg" href="#buttons">Browse components<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12h14M13.5 7l5 5-5 5"/></svg></a>
+        <button class="rui-btn rui-btn--secondary rui-btn--lg" data-rui-palette-open><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/></svg>Search commands</button>
+      </div>
+
+      <div class="rui-doc-stats">
+        <div class="rui-doc-stat"><div class="rui-doc-stat__n">38</div><div class="rui-doc-stat__l">components</div></div>
+        <div class="rui-doc-stat"><div class="rui-doc-stat__n">3</div><div class="rui-doc-stat__l">files</div></div>
+        <div class="rui-doc-stat"><div class="rui-doc-stat__n">0</div><div class="rui-doc-stat__l">dependencies</div></div>
+        <div class="rui-doc-stat"><div class="rui-doc-stat__n">2</div><div class="rui-doc-stat__l">full themes</div></div>
+      </div>
+
+      <div class="rui-alert" style="margin-top:40px">
+        <span class="rui-alert__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.5 13.8 9 19.5 10.8 13.8 12.6 12 18.2 10.2 12.6 4.5 10.8 10.2 9 12 3.5Z"/></svg></span>
+        <div class="rui-alert__text">
+          <p class="rui-alert__title">Two files and a link tag</p>
+          <p class="rui-alert__body">Drop <code>refero-ui.css</code> and <code>refero-ui.js</code> next to your HTML. The script scans <code>data-rui-*</code> attributes on load; for markup you add later, call <code>ReferoUI.init(element)</code>.</p>
+        </div>
+      </div>
+
+      <pre class="rui-doc-code" id="rui-code-install" tabindex="0" style="margin-top:16px;border-radius:16px;box-shadow:inset 0 0 0 1px var(--rui-gray-alpha-200)"><code>&lt;<span class="rui-doc-code__tag">link</span> <span class="rui-doc-code__attr">rel</span>=<span class="rui-doc-code__val">"stylesheet"</span> <span class="rui-doc-code__attr">href</span>=<span class="rui-doc-code__val">"refero-ui.css"</span>&gt;
+&lt;<span class="rui-doc-code__tag">script</span> <span class="rui-doc-code__attr">src</span>=<span class="rui-doc-code__val">"refero-ui.js"</span> defer&gt;&lt;/<span class="rui-doc-code__tag">script</span>&gt;
+
+&lt;<span class="rui-doc-code__tag">button</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-btn rui-btn--primary"</span>&gt;Save collection&lt;/<span class="rui-doc-code__tag">button</span>&gt;</code></pre>
+    </section>
+
+<section class="rui-doc-section" id="color" aria-labelledby="color-h">
+  <div class="rui-doc-section__head">
+    <p class="rui-eyebrow">Foundations</p>
+    <h2 class="rui-doc-section__title" id="color-h">Color</h2>
+    <p class="rui-doc-section__lede">The neutral ramp is blue-biased rather than grey &mdash; that cool cast is what makes the surface read as expensive instead of flat. Both a solid scale and an alpha scale exist; alphas are used for hairlines, overlays and secondary text so they compose over any background. The accent is monochrome: pure black in light, pure white in dark. Hue is reserved for status.</p>
+  </div>
+<div class="rui-doc-block">
+<h3 class="rui-doc-block__title">Neutral ramp <span class="rui-doc-block__note">solid</span></h3>
+<div class="rui-doc-example"><div class="rui-doc-demo rui-doc-demo--plain"><div class="rui-doc-swatches"><div class="rui-doc-swatch"><div class="rui-doc-swatch__chip" style="background:var(--rui-gray-solid-0)"></div><div class="rui-doc-swatch__name">solid-0</div></div><div class="rui-doc-swatch"><div class="rui-doc-swatch__chip" style="background:var(--rui-gray-solid-100)"></div><div class="rui-doc-swatch__name">solid-100</div></div><div class="rui-doc-swatch"><div class="rui-doc-swatch__chip" style="background:var(--rui-gray-solid-200)"></div><div class="rui-doc-swatch__name">solid-200</div></div><div class="rui-doc-swatch"><div class="rui-doc-swatch__chip" style="background:var(--rui-gray-solid-300)"></div><div class="rui-doc-swatch__name">solid-300</div></div><div class="rui-doc-swatch"><div class="rui-doc-swatch__chip" style="background:var(--rui-gray-solid-400)"></div><div class="rui-doc-swatch__name">solid-400</div></div><div class="rui-doc-swatch"><div class="rui-doc-swatch__chip" style="background:var(--rui-gray-solid-500)"></div><div class="rui-doc-swatch__name">solid-500</div></div><div class="rui-doc-swatch"><div class="rui-doc-swatch__chip" style="background:var(--rui-gray-solid-600)"></div><div class="rui-doc-swatch__name">solid-600</div></div><div class="rui-doc-swatch"><div class="rui-doc-swatch__chip" style="background:var(--rui-gray-solid-700)"></div><div class="rui-doc-swatch__name">solid-700</div></div><div class="rui-doc-swatch"><div class="rui-doc-swatch__chip" style="background:var(--rui-gray-solid-800)"></div><div class="rui-doc-swatch__name">solid-800</div></div><div class="rui-doc-swatch"><div class="rui-doc-swatch__chip" style="background:var(--rui-gray-solid-900)"></div><div class="rui-doc-swatch__name">solid-900</div></div></div></div></div>
+</div>
+<div class="rui-doc-block">
+<h3 class="rui-doc-block__title">Neutral ramp <span class="rui-doc-block__note">alpha</span></h3>
+<div class="rui-doc-example"><div class="rui-doc-demo rui-doc-demo--plain"><div class="rui-doc-swatches"><div class="rui-doc-swatch"><div class="rui-doc-swatch__chip" style="background:var(--rui-gray-alpha-100)"></div><div class="rui-doc-swatch__name">alpha-100</div></div><div class="rui-doc-swatch"><div class="rui-doc-swatch__chip" style="background:var(--rui-gray-alpha-200)"></div><div class="rui-doc-swatch__name">alpha-200</div></div><div class="rui-doc-swatch"><div class="rui-doc-swatch__chip" style="background:var(--rui-gray-alpha-300)"></div><div class="rui-doc-swatch__name">alpha-300</div></div><div class="rui-doc-swatch"><div class="rui-doc-swatch__chip" style="background:var(--rui-gray-alpha-400)"></div><div class="rui-doc-swatch__name">alpha-400</div></div><div class="rui-doc-swatch"><div class="rui-doc-swatch__chip" style="background:var(--rui-gray-alpha-500)"></div><div class="rui-doc-swatch__name">alpha-500</div></div><div class="rui-doc-swatch"><div class="rui-doc-swatch__chip" style="background:var(--rui-gray-alpha-600)"></div><div class="rui-doc-swatch__name">alpha-600</div></div><div class="rui-doc-swatch"><div class="rui-doc-swatch__chip" style="background:var(--rui-gray-alpha-700)"></div><div class="rui-doc-swatch__name">alpha-700</div></div><div class="rui-doc-swatch"><div class="rui-doc-swatch__chip" style="background:var(--rui-gray-alpha-800)"></div><div class="rui-doc-swatch__name">alpha-800</div></div></div></div></div>
+</div>
+<div class="rui-doc-block">
+<h3 class="rui-doc-block__title">Status <span class="rui-doc-block__note">the only place hue appears</span></h3>
+<div class="rui-doc-example">
+  <div class="rui-doc-demo ">
+    <span class="rui-badge rui-badge--green"><span class="rui-badge__dot"></span>Published</span>
+    <span class="rui-badge rui-badge--amber"><span class="rui-badge__dot"></span>In review</span>
+    <span class="rui-badge rui-badge--red"><span class="rui-badge__dot"></span>Rejected</span>
+    <span class="rui-badge">Draft</span>
+    <span class="rui-badge rui-badge--solid">Pro</span>
+  </div>
+  <pre class="rui-doc-code" id="rui-code-1" tabindex="0"><code>&lt;<span class="rui-doc-code__tag">span</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-badge rui-badge--green"</span>&gt;&lt;<span class="rui-doc-code__tag">span</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-badge__dot"</span>&gt;&lt;/<span class="rui-doc-code__tag">span</span>&gt;Published&lt;/<span class="rui-doc-code__tag">span</span>&gt;
+&lt;<span class="rui-doc-code__tag">span</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-badge rui-badge--amber"</span>&gt;&lt;<span class="rui-doc-code__tag">span</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-badge__dot"</span>&gt;&lt;/<span class="rui-doc-code__tag">span</span>&gt;In review&lt;/<span class="rui-doc-code__tag">span</span>&gt;
+&lt;<span class="rui-doc-code__tag">span</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-badge rui-badge--red"</span>&gt;&lt;<span class="rui-doc-code__tag">span</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-badge__dot"</span>&gt;&lt;/<span class="rui-doc-code__tag">span</span>&gt;Rejected&lt;/<span class="rui-doc-code__tag">span</span>&gt;
+&lt;<span class="rui-doc-code__tag">span</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-badge"</span>&gt;Draft&lt;/<span class="rui-doc-code__tag">span</span>&gt;
+&lt;<span class="rui-doc-code__tag">span</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-badge rui-badge--solid"</span>&gt;Pro&lt;/<span class="rui-doc-code__tag">span</span>&gt;</code></pre>
+  <div class="rui-doc-example__foot"><span>Status colours shift between themes; every other surface is derived from the ramp.</span><button class="rui-btn rui-btn--sm rui-btn--ghost" data-rui-copy="rui-code-1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8.5" y="8.5" width="12" height="12" rx="2.2"/><path d="M15.5 5.5H6a2.5 2.5 0 0 0-2.5 2.5v9.5"/></svg> Copy</button></div>
+</div>
+</div>
+</section>
+
+<section class="rui-doc-section" id="typography" aria-labelledby="typography-h">
+  <div class="rui-doc-section__head">
+    <p class="rui-eyebrow">Foundations</p>
+    <h2 class="rui-doc-section__title" id="typography-h">Typography</h2>
+    <p class="rui-doc-section__lede">Instrument Sans carries the interface, Instrument Serif carries display type. Tracking is negative everywhere and tightens as type grows &mdash; <code>-0.02em</code> is the baseline, display steps run to <code>-0.03em</code>. Set at zero, the whole system stops looking like itself.</p>
+  </div>
+<div class="rui-doc-block">
+<h3 class="rui-doc-block__title">Scale <span class="rui-doc-block__note">16px body, 12px meta, 25/32/40/50/64 display</span></h3>
+<div class="rui-doc-example">
+  <div class="rui-doc-demo rui-doc-demo--plain">
+    <div class="rui-doc-col">
+      <p class="rui-display">Reference, fast</p>
+      <p class="rui-h1">The largest library of screens</p>
+      <h2 class="rui-h2">Sixty-four thousand screens</h2>
+      <h3 class="rui-h3">Filter by platform, colour and pattern</h3>
+      <h4 class="rui-h4">Saved to your collection</h4>
+      <p class="rui-body rui-muted">Body copy sits at 16px with a 1.55 line height. Long-form reading stays comfortable while the interface around it stays dense.</p>
+      <p class="rui-small rui-muted">Small text is 14px — captions, table cells, helper copy.</p>
+      <p class="rui-label rui-muted">Label text is 12px and carries most metadata.</p>
+      <p class="rui-eyebrow">Eyebrow / section marker</p>
+    </div>
+  </div>
+  <pre class="rui-doc-code" id="rui-code-2" tabindex="0"><code>&lt;<span class="rui-doc-code__tag">div</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-doc-col"</span>&gt;
+  &lt;<span class="rui-doc-code__tag">p</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-display"</span>&gt;Reference, fast&lt;/<span class="rui-doc-code__tag">p</span>&gt;
+  &lt;<span class="rui-doc-code__tag">p</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-h1"</span>&gt;The largest library of screens&lt;/<span class="rui-doc-code__tag">p</span>&gt;
+  &lt;<span class="rui-doc-code__tag">h2</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-h2"</span>&gt;Sixty-four thousand screens&lt;/<span class="rui-doc-code__tag">h2</span>&gt;
+  &lt;<span class="rui-doc-code__tag">h3</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-h3"</span>&gt;Filter by platform, colour and pattern&lt;/<span class="rui-doc-code__tag">h3</span>&gt;
+  &lt;<span class="rui-doc-code__tag">h4</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-h4"</span>&gt;Saved to your collection&lt;/<span class="rui-doc-code__tag">h4</span>&gt;
+  &lt;<span class="rui-doc-code__tag">p</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-body rui-muted"</span>&gt;Body copy sits at 16px with a 1.55 line height. Long-form reading stays comfortable while the interface around it stays dense.&lt;/<span class="rui-doc-code__tag">p</span>&gt;
+  &lt;<span class="rui-doc-code__tag">p</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-small rui-muted"</span>&gt;Small text is 14px — captions, table cells, helper copy.&lt;/<span class="rui-doc-code__tag">p</span>&gt;
+  &lt;<span class="rui-doc-code__tag">p</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-label rui-muted"</span>&gt;Label text is 12px and carries most metadata.&lt;/<span class="rui-doc-code__tag">p</span>&gt;
+  &lt;<span class="rui-doc-code__tag">p</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-eyebrow"</span>&gt;Eyebrow / section marker&lt;/<span class="rui-doc-code__tag">p</span>&gt;
+&lt;/<span class="rui-doc-code__tag">div</span>&gt;</code></pre>
+  <div class="rui-doc-example__foot"><span></span><button class="rui-btn rui-btn--sm rui-btn--ghost" data-rui-copy="rui-code-2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8.5" y="8.5" width="12" height="12" rx="2.2"/><path d="M15.5 5.5H6a2.5 2.5 0 0 0-2.5 2.5v9.5"/></svg> Copy</button></div>
+</div>
+</div>
+</section>
+
+<section class="rui-doc-section" id="buttons" aria-labelledby="buttons-h">
+  <div class="rui-doc-section__head">
+    <p class="rui-eyebrow">Actions</p>
+    <h2 class="rui-doc-section__title" id="buttons-h">Button</h2>
+    <p class="rui-doc-section__lede">Four intents and three sizes. The primary button is monochrome by design &mdash; black on white, white on black &mdash; so the one coloured button in the set, danger, is unmistakably a warning. Hairlines on the secondary variant are inset shadows, so nothing shifts by a pixel on hover.</p>
+  </div>
+<div class="rui-doc-block">
+<h3 class="rui-doc-block__title">Intents</h3>
+<div class="rui-doc-example">
+  <div class="rui-doc-demo ">
+    <button class="rui-btn rui-btn--primary">Save collection</button>
+    <button class="rui-btn rui-btn--secondary">Preview</button>
+    <button class="rui-btn rui-btn--ghost">Cancel</button>
+    <button class="rui-btn rui-btn--danger">Delete</button>
+  </div>
+  <pre class="rui-doc-code" id="rui-code-3" tabindex="0"><code>&lt;<span class="rui-doc-code__tag">button</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-btn rui-btn--primary"</span>&gt;Save collection&lt;/<span class="rui-doc-code__tag">button</span>&gt;
+&lt;<span class="rui-doc-code__tag">button</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-btn rui-btn--secondary"</span>&gt;Preview&lt;/<span class="rui-doc-code__tag">button</span>&gt;
+&lt;<span class="rui-doc-code__tag">button</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-btn rui-btn--ghost"</span>&gt;Cancel&lt;/<span class="rui-doc-code__tag">button</span>&gt;
+&lt;<span class="rui-doc-code__tag">button</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-btn rui-btn--danger"</span>&gt;Delete&lt;/<span class="rui-doc-code__tag">button</span>&gt;</code></pre>
+  <div class="rui-doc-example__foot"><span></span><button class="rui-btn rui-btn--sm rui-btn--ghost" data-rui-copy="rui-code-3"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8.5" y="8.5" width="12" height="12" rx="2.2"/><path d="M15.5 5.5H6a2.5 2.5 0 0 0-2.5 2.5v9.5"/></svg> Copy</button></div>
+</div>
+</div>
+<div class="rui-doc-block">
+<h3 class="rui-doc-block__title">Sizes <span class="rui-doc-block__note">32 / 40 / 48px</span></h3>
+<div class="rui-doc-example">
+  <div class="rui-doc-demo ">
+    <button class="rui-btn rui-btn--primary rui-btn--sm">Small</button>
+    <button class="rui-btn rui-btn--primary">Medium</button>
+    <button class="rui-btn rui-btn--primary rui-btn--lg">Large</button>
+  </div>
+  <pre class="rui-doc-code" id="rui-code-4" tabindex="0"><code>&lt;<span class="rui-doc-code__tag">button</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-btn rui-btn--primary rui-btn--sm"</span>&gt;Small&lt;/<span class="rui-doc-code__tag">button</span>&gt;
+&lt;<span class="rui-doc-code__tag">button</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-btn rui-btn--primary"</span>&gt;Medium&lt;/<span class="rui-doc-code__tag">button</span>&gt;
+&lt;<span class="rui-doc-code__tag">button</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-btn rui-btn--primary rui-btn--lg"</span>&gt;Large&lt;/<span class="rui-doc-code__tag">button</span>&gt;</code></pre>
+  <div class="rui-doc-example__foot"><span></span><button class="rui-btn rui-btn--sm rui-btn--ghost" data-rui-copy="rui-code-4"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8.5" y="8.5" width="12" height="12" rx="2.2"/><path d="M15.5 5.5H6a2.5 2.5 0 0 0-2.5 2.5v9.5"/></svg> Copy</button></div>
+</div>
+</div>
+<div class="rui-doc-block">
+<h3 class="rui-doc-block__title">With icons, and icon-only</h3>
+<div class="rui-doc-example">
+  <div class="rui-doc-demo ">
+    <button class="rui-btn rui-btn--secondary"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5.5v13M5.5 12h13"/></svg>New board</button>
+    <button class="rui-btn rui-btn--ghost">Export<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v10.5M7.5 10.5 12 15l4.5-4.5"/><path d="M4.5 19.5h15"/></svg></button>
+    <button class="rui-btn rui-btn--secondary rui-btn--icon" aria-label="Settings" data-rui-tooltip="Settings"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 14.5a1.6 1.6 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.6 1.6 0 0 0-2.7 1.1v.3a2 2 0 1 1-4 0v-.2a1.6 1.6 0 0 0-2.8-1.1l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.6 1.6 0 0 0-1.1-2.7h-.3a2 2 0 1 1 0-4h.2a1.6 1.6 0 0 0 1.1-2.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.6 1.6 0 0 0 2.7-1.1v-.3a2 2 0 1 1 4 0v.2a1.6 1.6 0 0 0 2.8 1.1l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.6 1.6 0 0 0 1.1 2.7h.3a2 2 0 1 1 0 4h-.2a1.6 1.6 0 0 0-1.4 1.1Z"/></svg></button>
+    <button class="rui-btn rui-btn--secondary rui-btn--icon rui-btn--round" aria-label="Save to collection" data-rui-tooltip="Save to collection"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.5 4h11v16.2l-5.5-3.7-5.5 3.7V4Z"/></svg></button>
+  </div>
+  <pre class="rui-doc-code" id="rui-code-5" tabindex="0"><code>&lt;<span class="rui-doc-code__tag">button</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-btn rui-btn--secondary"</span>&gt;&lt;<span class="rui-doc-code__tag">svg</span>&gt;…&lt;/<span class="rui-doc-code__tag">svg</span>&gt;New board&lt;/<span class="rui-doc-code__tag">button</span>&gt;
+&lt;<span class="rui-doc-code__tag">button</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-btn rui-btn--ghost"</span>&gt;Export&lt;<span class="rui-doc-code__tag">svg</span>&gt;…&lt;/<span class="rui-doc-code__tag">svg</span>&gt;&lt;/<span class="rui-doc-code__tag">button</span>&gt;
+&lt;<span class="rui-doc-code__tag">button</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-btn rui-btn--secondary rui-btn--icon"</span> <span class="rui-doc-code__attr">aria-label</span>=<span class="rui-doc-code__val">"Settings"</span>&gt;&lt;<span class="rui-doc-code__tag">svg</span>&gt;…&lt;/<span class="rui-doc-code__tag">svg</span>&gt;&lt;/<span class="rui-doc-code__tag">button</span>&gt;</code></pre>
+  <div class="rui-doc-example__foot"><span>Icon-only buttons always carry an aria-label.</span><button class="rui-btn rui-btn--sm rui-btn--ghost" data-rui-copy="rui-code-5"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8.5" y="8.5" width="12" height="12" rx="2.2"/><path d="M15.5 5.5H6a2.5 2.5 0 0 0-2.5 2.5v9.5"/></svg> Copy</button></div>
+</div>
+</div>
+<div class="rui-doc-block">
+<h3 class="rui-doc-block__title">Loading and disabled <span class="rui-doc-block__note">click Publish to watch the state</span></h3>
+<div class="rui-doc-example">
+  <div class="rui-doc-demo ">
+    <button class="rui-btn rui-btn--primary" data-rui-loading-demo data-loading="false">Publish</button>
+    <button class="rui-btn rui-btn--secondary" data-loading="true">Syncing</button>
+    <button class="rui-btn rui-btn--primary" disabled>Unavailable</button>
+    <button class="rui-btn rui-btn--secondary" disabled>Unavailable</button>
+  </div>
+  <pre class="rui-doc-code" id="rui-code-6" tabindex="0"><code>&lt;<span class="rui-doc-code__tag">button</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-btn rui-btn--primary"</span> data-rui-loading-demo <span class="rui-doc-code__attr">data-loading</span>=<span class="rui-doc-code__val">"false"</span>&gt;Publish&lt;/<span class="rui-doc-code__tag">button</span>&gt;
+&lt;<span class="rui-doc-code__tag">button</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-btn rui-btn--secondary"</span> <span class="rui-doc-code__attr">data-loading</span>=<span class="rui-doc-code__val">"true"</span>&gt;Syncing&lt;/<span class="rui-doc-code__tag">button</span>&gt;
+&lt;<span class="rui-doc-code__tag">button</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-btn rui-btn--primary"</span> disabled&gt;Unavailable&lt;/<span class="rui-doc-code__tag">button</span>&gt;
+&lt;<span class="rui-doc-code__tag">button</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-btn rui-btn--secondary"</span> disabled&gt;Unavailable&lt;/<span class="rui-doc-code__tag">button</span>&gt;</code></pre>
+  <div class="rui-doc-example__foot"><span>data-loading swaps the label for a spinner without changing the button&#x27;s width.</span><button class="rui-btn rui-btn--sm rui-btn--ghost" data-rui-copy="rui-code-6"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8.5" y="8.5" width="12" height="12" rx="2.2"/><path d="M15.5 5.5H6a2.5 2.5 0 0 0-2.5 2.5v9.5"/></svg> Copy</button></div>
+</div>
+</div>
+</section>
+
+<section class="rui-doc-section" id="button-group" aria-labelledby="button-group-h">
+  <div class="rui-doc-section__head">
+    <p class="rui-eyebrow">Actions</p>
+    <h2 class="rui-doc-section__title" id="button-group-h">Button group &amp; kbd</h2>
+    <p class="rui-doc-section__lede">Segmented actions share one hairline so the seam between them is a single pixel, not two. The <code>kbd</code> element uses interface type rather than a monospace face, matching how shortcuts are drawn throughout the system.</p>
+  </div>
+<div class="rui-doc-block">
+<h3 class="rui-doc-block__title">Button group</h3>
+<div class="rui-doc-example">
+  <div class="rui-doc-demo ">
+    <div class="rui-btn-group" role="group" aria-label="Layout density">
+      <button class="rui-btn rui-btn--sm" data-rui-toggle aria-pressed="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="3.5" width="7" height="7" rx="1.6"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.6"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.6"/><rect x="13.5" y="13.5" width="7" height="7" rx="1.6"/></svg>Grid</button>
+      <button class="rui-btn rui-btn--sm" data-rui-toggle aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3 8.5 4.8L12 12.6 3.5 7.8 12 3Z"/><path d="m3.5 12.4 8.5 4.8 8.5-4.8"/><path d="m3.5 16.6 8.5 4.8 8.5-4.8"/></svg>Stack</button>
+      <button class="rui-btn rui-btn--sm" data-rui-toggle aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 6h17M6.5 12h11M10 18h4"/></svg>List</button>
+    </div>
+  </div>
+  <pre class="rui-doc-code" id="rui-code-7" tabindex="0"><code>&lt;<span class="rui-doc-code__tag">div</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-btn-group"</span> <span class="rui-doc-code__attr">role</span>=<span class="rui-doc-code__val">"group"</span> <span class="rui-doc-code__attr">aria-label</span>=<span class="rui-doc-code__val">"Layout density"</span>&gt;
+  &lt;<span class="rui-doc-code__tag">button</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-btn rui-btn--sm"</span> data-rui-toggle <span class="rui-doc-code__attr">aria-pressed</span>=<span class="rui-doc-code__val">"true"</span>&gt;Grid&lt;/<span class="rui-doc-code__tag">button</span>&gt;
+  &lt;<span class="rui-doc-code__tag">button</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-btn rui-btn--sm"</span> data-rui-toggle <span class="rui-doc-code__attr">aria-pressed</span>=<span class="rui-doc-code__val">"false"</span>&gt;Stack&lt;/<span class="rui-doc-code__tag">button</span>&gt;
+  &lt;<span class="rui-doc-code__tag">button</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-btn rui-btn--sm"</span> data-rui-toggle <span class="rui-doc-code__attr">aria-pressed</span>=<span class="rui-doc-code__val">"false"</span>&gt;List&lt;/<span class="rui-doc-code__tag">button</span>&gt;
+&lt;/<span class="rui-doc-code__tag">div</span>&gt;</code></pre>
+  <div class="rui-doc-example__foot"><span></span><button class="rui-btn rui-btn--sm rui-btn--ghost" data-rui-copy="rui-code-7"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8.5" y="8.5" width="12" height="12" rx="2.2"/><path d="M15.5 5.5H6a2.5 2.5 0 0 0-2.5 2.5v9.5"/></svg> Copy</button></div>
+</div>
+</div>
+<div class="rui-doc-block">
+<h3 class="rui-doc-block__title">Keyboard hints</h3>
+<div class="rui-doc-example">
+  <div class="rui-doc-demo ">
+    <span class="rui-doc-kbdcue rui-small rui-muted">Open search<kbd class="rui-kbd">⌘</kbd><kbd class="rui-kbd">K</kbd></span>
+    <span class="rui-doc-kbdcue rui-small rui-muted">Dismiss<kbd class="rui-kbd">Esc</kbd></span>
+    <span class="rui-doc-kbdcue rui-small rui-muted">Next result<kbd class="rui-kbd">↓</kbd></span>
+  </div>
+  <pre class="rui-doc-code" id="rui-code-8" tabindex="0"><code>&lt;<span class="rui-doc-code__tag">span</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-doc-kbdcue rui-small rui-muted"</span>&gt;Open search&lt;<span class="rui-doc-code__tag">kbd</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-kbd"</span>&gt;⌘&lt;/<span class="rui-doc-code__tag">kbd</span>&gt;&lt;<span class="rui-doc-code__tag">kbd</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-kbd"</span>&gt;K&lt;/<span class="rui-doc-code__tag">kbd</span>&gt;&lt;/<span class="rui-doc-code__tag">span</span>&gt;
+&lt;<span class="rui-doc-code__tag">span</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-doc-kbdcue rui-small rui-muted"</span>&gt;Dismiss&lt;<span class="rui-doc-code__tag">kbd</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-kbd"</span>&gt;Esc&lt;/<span class="rui-doc-code__tag">kbd</span>&gt;&lt;/<span class="rui-doc-code__tag">span</span>&gt;
+&lt;<span class="rui-doc-code__tag">span</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-doc-kbdcue rui-small rui-muted"</span>&gt;Next result&lt;<span class="rui-doc-code__tag">kbd</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-kbd"</span>&gt;↓&lt;/<span class="rui-doc-code__tag">kbd</span>&gt;&lt;/<span class="rui-doc-code__tag">span</span>&gt;</code></pre>
+  <div class="rui-doc-example__foot"><span></span><button class="rui-btn rui-btn--sm rui-btn--ghost" data-rui-copy="rui-code-8"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8.5" y="8.5" width="12" height="12" rx="2.2"/><path d="M15.5 5.5H6a2.5 2.5 0 0 0-2.5 2.5v9.5"/></svg> Copy</button></div>
+</div>
+</div>
+</section>
+
+<section class="rui-doc-section" id="text-fields" aria-labelledby="text-fields-h">
+  <div class="rui-doc-section__head">
+    <p class="rui-eyebrow">Forms</p>
+    <h2 class="rui-doc-section__title" id="text-fields-h">Text fields</h2>
+    <p class="rui-doc-section__lede">Inputs, textareas and selects share one 40px control height and one 8px radius. The field wrapper carries the label, an optional description and an error message, and wires <code>aria-describedby</code> for you.</p>
+  </div>
+<div class="rui-doc-block">
+<h3 class="rui-doc-block__title">Field wrapper <span class="rui-doc-block__note">label + description + error</span></h3>
+<div class="rui-doc-example">
+  <div class="rui-doc-demo rui-doc-demo--plain">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:20px;width:100%">
+      <div class="rui-field">
+        <label class="rui-field__label" for="f-name">Collection name</label>
+        <input class="rui-input" id="f-name" type="text" value="Onboarding flows" aria-describedby="f-name-d">
+        <span class="rui-field__desc" id="f-name-d">Shown on the public collection page.</span>
+      </div>
+      <div class="rui-field">
+        <label class="rui-field__label" for="f-url">Source URL<span class="rui-field__req" aria-hidden="true">*</span></label>
+        <input class="rui-input" id="f-url" type="url" value="notaurl" aria-invalid="true" aria-describedby="f-url-e" required>
+        <span class="rui-field__error" id="f-url-e"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7.5v5M12 16h.01"/></svg>Enter a full URL, including https://</span>
+      </div>
+    </div>
+  </div>
+  <pre class="rui-doc-code" id="rui-code-9" tabindex="0"><code>&lt;<span class="rui-doc-code__tag">div</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-field"</span>&gt;
+  &lt;<span class="rui-doc-code__tag">label</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-field__label"</span> <span class="rui-doc-code__attr">for</span>=<span class="rui-doc-code__val">"f-name"</span>&gt;Collection name&lt;/<span class="rui-doc-code__tag">label</span>&gt;
+  &lt;<span class="rui-doc-code__tag">input</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-input"</span> <span class="rui-doc-code__attr">id</span>=<span class="rui-doc-code__val">"f-name"</span> <span class="rui-doc-code__attr">type</span>=<span class="rui-doc-code__val">"text"</span> <span class="rui-doc-code__attr">aria-describedby</span>=<span class="rui-doc-code__val">"f-name-d"</span>&gt;
+  &lt;<span class="rui-doc-code__tag">span</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-field__desc"</span> <span class="rui-doc-code__attr">id</span>=<span class="rui-doc-code__val">"f-name-d"</span>&gt;Shown on the public collection page.&lt;/<span class="rui-doc-code__tag">span</span>&gt;
+&lt;/<span class="rui-doc-code__tag">div</span>&gt;
+
+&lt;<span class="rui-doc-code__tag">div</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-field"</span>&gt;
+  &lt;<span class="rui-doc-code__tag">label</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-field__label"</span> <span class="rui-doc-code__attr">for</span>=<span class="rui-doc-code__val">"f-url"</span>&gt;Source URL&lt;<span class="rui-doc-code__tag">span</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-field__req"</span>&gt;*&lt;/<span class="rui-doc-code__tag">span</span>&gt;&lt;/<span class="rui-doc-code__tag">label</span>&gt;
+  &lt;<span class="rui-doc-code__tag">input</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-input"</span> <span class="rui-doc-code__attr">id</span>=<span class="rui-doc-code__val">"f-url"</span> <span class="rui-doc-code__attr">type</span>=<span class="rui-doc-code__val">"url"</span> <span class="rui-doc-code__attr">aria-invalid</span>=<span class="rui-doc-code__val">"true"</span> <span class="rui-doc-code__attr">aria-describedby</span>=<span class="rui-doc-code__val">"f-url-e"</span> required&gt;
+  &lt;<span class="rui-doc-code__tag">span</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-field__error"</span> <span class="rui-doc-code__attr">id</span>=<span class="rui-doc-code__val">"f-url-e"</span>&gt;&lt;<span class="rui-doc-code__tag">svg</span>&gt;…&lt;/<span class="rui-doc-code__tag">svg</span>&gt;Enter a full URL, including https://&lt;/<span class="rui-doc-code__tag">span</span>&gt;
+&lt;/<span class="rui-doc-code__tag">div</span>&gt;</code></pre>
+  <div class="rui-doc-example__foot"><span></span><button class="rui-btn rui-btn--sm rui-btn--ghost" data-rui-copy="rui-code-9"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8.5" y="8.5" width="12" height="12" rx="2.2"/><path d="M15.5 5.5H6a2.5 2.5 0 0 0-2.5 2.5v9.5"/></svg> Copy</button></div>
+</div>
+</div>
+<div class="rui-doc-block">
+<h3 class="rui-doc-block__title">Textarea and select</h3>
+<div class="rui-doc-example">
+  <div class="rui-doc-demo rui-doc-demo--plain">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:20px;width:100%">
+      <div class="rui-field">
+        <label class="rui-field__label" for="f-note">Why you saved it</label>
+        <textarea class="rui-textarea" id="f-note" placeholder="The empty state does more work than the dashboard."></textarea>
+      </div>
+      <div class="rui-field">
+        <label class="rui-field__label" for="f-platform">Platform</label>
+        <span class="rui-select-wrap">
+          <select class="rui-select" id="f-platform">
+            <option>Web</option>
+            <option>iOS</option>
+            <option>Android</option>
+            <option>Desktop</option>
+          </select>
+          <span class="rui-select-wrap__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9.5 6 6 6-6"/></svg></span>
+        </span>
+        <span class="rui-field__desc">Determines the aspect ratio used in the grid.</span>
+      </div>
+    </div>
+  </div>
+  <pre class="rui-doc-code" id="rui-code-10" tabindex="0"><code>&lt;<span class="rui-doc-code__tag">textarea</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-textarea"</span> <span class="rui-doc-code__attr">id</span>=<span class="rui-doc-code__val">"f-note"</span> <span class="rui-doc-code__attr">placeholder</span>=<span class="rui-doc-code__val">"…"</span>&gt;&lt;/<span class="rui-doc-code__tag">textarea</span>&gt;
+
+&lt;<span class="rui-doc-code__tag">span</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-select-wrap"</span>&gt;
+  &lt;<span class="rui-doc-code__tag">select</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-select"</span> <span class="rui-doc-code__attr">id</span>=<span class="rui-doc-code__val">"f-platform"</span>&gt;
+    &lt;<span class="rui-doc-code__tag">option</span>&gt;Web&lt;/<span class="rui-doc-code__tag">option</span>&gt;
+    &lt;<span class="rui-doc-code__tag">option</span>&gt;iOS&lt;/<span class="rui-doc-code__tag">option</span>&gt;
+  &lt;/<span class="rui-doc-code__tag">select</span>&gt;
+  &lt;<span class="rui-doc-code__tag">span</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-select-wrap__chevron"</span>&gt;&lt;<span class="rui-doc-code__tag">svg</span>&gt;…&lt;/<span class="rui-doc-code__tag">svg</span>&gt;&lt;/<span class="rui-doc-code__tag">span</span>&gt;
+&lt;/<span class="rui-doc-code__tag">span</span>&gt;</code></pre>
+  <div class="rui-doc-example__foot"><span></span><button class="rui-btn rui-btn--sm rui-btn--ghost" data-rui-copy="rui-code-10"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8.5" y="8.5" width="12" height="12" rx="2.2"/><path d="M15.5 5.5H6a2.5 2.5 0 0 0-2.5 2.5v9.5"/></svg> Copy</button></div>
+</div>
+</div>
+<div class="rui-doc-block">
+<h3 class="rui-doc-block__title">Search <span class="rui-doc-block__note">type to reveal the clear button</span></h3>
+<div class="rui-doc-example">
+  <div class="rui-doc-demo ">
+    <div class="rui-search" data-rui-search style="flex:1;min-width:220px;max-width:420px">
+      <span class="rui-search__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/></svg></span>
+      <input class="rui-input" type="search" value="pricing page" placeholder="Search 64,000 screens" aria-label="Search references">
+      <button class="rui-search__clear" data-rui-search-clear><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg></button>
+    </div>
+  </div>
+  <pre class="rui-doc-code" id="rui-code-11" tabindex="0"><code>&lt;<span class="rui-doc-code__tag">div</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-search"</span> data-rui-search&gt;
+  &lt;<span class="rui-doc-code__tag">span</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-search__icon"</span>&gt;&lt;<span class="rui-doc-code__tag">svg</span>&gt;…&lt;/<span class="rui-doc-code__tag">svg</span>&gt;&lt;/<span class="rui-doc-code__tag">span</span>&gt;
+  &lt;<span class="rui-doc-code__tag">input</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-input"</span> <span class="rui-doc-code__attr">type</span>=<span class="rui-doc-code__val">"search"</span> <span class="rui-doc-code__attr">placeholder</span>=<span class="rui-doc-code__val">"Search 64,000 screens"</span> <span class="rui-doc-code__attr">aria-label</span>=<span class="rui-doc-code__val">"Search references"</span>&gt;
+  &lt;<span class="rui-doc-code__tag">button</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-search__clear"</span> data-rui-search-clear&gt;&lt;<span class="rui-doc-code__tag">svg</span>&gt;…&lt;/<span class="rui-doc-code__tag">svg</span>&gt;&lt;/<span class="rui-doc-code__tag">button</span>&gt;
+&lt;/<span class="rui-doc-code__tag">div</span>&gt;</code></pre>
+  <div class="rui-doc-example__foot"><span>Escape clears the field while it is focused.</span><button class="rui-btn rui-btn--sm rui-btn--ghost" data-rui-copy="rui-code-11"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8.5" y="8.5" width="12" height="12" rx="2.2"/><path d="M15.5 5.5H6a2.5 2.5 0 0 0-2.5 2.5v9.5"/></svg> Copy</button></div>
+</div>
+</div>
+</section>
+
+<section class="rui-doc-section" id="choice" aria-labelledby="choice-h">
+  <div class="rui-doc-section__head">
+    <p class="rui-eyebrow">Forms</p>
+    <h2 class="rui-doc-section__title" id="choice-h">Checkbox, radio &amp; switch</h2>
+    <p class="rui-doc-section__lede">Native <code>input</code> elements with the browser chrome stripped, so keyboard and screen-reader behaviour comes for free. The switch is a <code>button role="switch"</code> &mdash; Space and Enter both toggle it.</p>
+  </div>
+<div class="rui-doc-block">
+<h3 class="rui-doc-block__title">Checkbox and radio</h3>
+<div class="rui-doc-example">
+  <div class="rui-doc-demo rui-doc-demo--plain">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:22px;width:100%">
+      <fieldset style="border:0;margin:0;padding:0;display:flex;flex-direction:column;gap:12px">
+        <legend class="rui-label rui-muted" style="padding:0 0 4px">Include in export</legend>
+        <label class="rui-choice"><input class="rui-checkbox" type="checkbox" checked><span class="rui-choice__text">Screenshots<span class="rui-choice__desc">Full-resolution PNG</span></span></label>
+        <label class="rui-choice"><input class="rui-checkbox" type="checkbox"><span class="rui-choice__text">Colour palettes</span></label>
+        <label class="rui-choice"><input class="rui-checkbox" type="checkbox" disabled><span class="rui-choice__text">Source files<span class="rui-choice__desc">Pro plan only</span></span></label>
+      </fieldset>
+      <fieldset style="border:0;margin:0;padding:0;display:flex;flex-direction:column;gap:12px">
+        <legend class="rui-label rui-muted" style="padding:0 0 4px">Visibility</legend>
+        <label class="rui-choice"><input class="rui-radio" type="radio" name="vis" checked><span class="rui-choice__text">Public<span class="rui-choice__desc">Anyone with the link</span></span></label>
+        <label class="rui-choice"><input class="rui-radio" type="radio" name="vis"><span class="rui-choice__text">Team only</span></label>
+        <label class="rui-choice"><input class="rui-radio" type="radio" name="vis"><span class="rui-choice__text">Private</span></label>
+      </fieldset>
+    </div>
+  </div>
+  <pre class="rui-doc-code" id="rui-code-12" tabindex="0"><code>&lt;<span class="rui-doc-code__tag">label</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-choice"</span>&gt;
+  &lt;<span class="rui-doc-code__tag">input</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-checkbox"</span> <span class="rui-doc-code__attr">type</span>=<span class="rui-doc-code__val">"checkbox"</span> checked&gt;
+  &lt;<span class="rui-doc-code__tag">span</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-choice__text"</span>&gt;Screenshots
+    &lt;<span class="rui-doc-code__tag">span</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-choice__desc"</span>&gt;Full-resolution PNG&lt;/<span class="rui-doc-code__tag">span</span>&gt;
+  &lt;/<span class="rui-doc-code__tag">span</span>&gt;
+&lt;/<span class="rui-doc-code__tag">label</span>&gt;
+
+&lt;<span class="rui-doc-code__tag">label</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-choice"</span>&gt;
+  &lt;<span class="rui-doc-code__tag">input</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-radio"</span> <span class="rui-doc-code__attr">type</span>=<span class="rui-doc-code__val">"radio"</span> <span class="rui-doc-code__attr">name</span>=<span class="rui-doc-code__val">"vis"</span> checked&gt;
+  &lt;<span class="rui-doc-code__tag">span</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-choice__text"</span>&gt;Public&lt;/<span class="rui-doc-code__tag">span</span>&gt;
+&lt;/<span class="rui-doc-code__tag">label</span>&gt;</code></pre>
+  <div class="rui-doc-example__foot"><span></span><button class="rui-btn rui-btn--sm rui-btn--ghost" data-rui-copy="rui-code-12"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8.5" y="8.5" width="12" height="12" rx="2.2"/><path d="M15.5 5.5H6a2.5 2.5 0 0 0-2.5 2.5v9.5"/></svg> Copy</button></div>
+</div>
+</div>
+<div class="rui-doc-block">
+<h3 class="rui-doc-block__title">Switch</h3>
+<div class="rui-doc-example">
+  <div class="rui-doc-demo rui-doc-demo--plain">
+    <div style="display:flex;flex-direction:column;gap:14px;width:100%;max-width:420px">
+      <div class="rui-switch-row">
+        <label class="rui-small" id="sw1-l" for="sw1">Notify me about new references</label>
+        <button class="rui-switch" id="sw1" data-rui-switch aria-checked="true" aria-labelledby="sw1-l"></button>
+      </div>
+      <div class="rui-switch-row">
+        <label class="rui-small" id="sw2-l" for="sw2">Auto-play interaction clips</label>
+        <button class="rui-switch" id="sw2" data-rui-switch aria-checked="false" aria-labelledby="sw2-l"></button>
+      </div>
+      <div class="rui-switch-row">
+        <label class="rui-small rui-muted" id="sw3-l" for="sw3">Beta filters</label>
+        <button class="rui-switch" id="sw3" data-rui-switch aria-checked="false" aria-labelledby="sw3-l" disabled></button>
+      </div>
+    </div>
+  </div>
+  <pre class="rui-doc-code" id="rui-code-13" tabindex="0"><code>&lt;<span class="rui-doc-code__tag">div</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-switch-row"</span>&gt;
+  &lt;<span class="rui-doc-code__tag">label</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-small"</span> <span class="rui-doc-code__attr">id</span>=<span class="rui-doc-code__val">"sw1-l"</span> <span class="rui-doc-code__attr">for</span>=<span class="rui-doc-code__val">"sw1"</span>&gt;Notify me about new references&lt;/<span class="rui-doc-code__tag">label</span>&gt;
+  &lt;<span class="rui-doc-code__tag">button</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-switch"</span> <span class="rui-doc-code__attr">id</span>=<span class="rui-doc-code__val">"sw1"</span> data-rui-switch <span class="rui-doc-code__attr">aria-checked</span>=<span class="rui-doc-code__val">"true"</span> <span class="rui-doc-code__attr">aria-labelledby</span>=<span class="rui-doc-code__val">"sw1-l"</span>&gt;&lt;/<span class="rui-doc-code__tag">button</span>&gt;
+&lt;/<span class="rui-doc-code__tag">div</span>&gt;</code></pre>
+  <div class="rui-doc-example__foot"><span></span><button class="rui-btn rui-btn--sm rui-btn--ghost" data-rui-copy="rui-code-13"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8.5" y="8.5" width="12" height="12" rx="2.2"/><path d="M15.5 5.5H6a2.5 2.5 0 0 0-2.5 2.5v9.5"/></svg> Copy</button></div>
+</div>
+</div>
+</section>
+
+<section class="rui-doc-section" id="slider" aria-labelledby="slider-h">
+  <div class="rui-doc-section__head">
+    <p class="rui-eyebrow">Forms</p>
+    <h2 class="rui-doc-section__title" id="slider-h">Slider</h2>
+    <p class="rui-doc-section__lede">A native range input restyled on both engines, with a live value read-out wired through <code>aria-valuetext</code>.</p>
+  </div>
+<div class="rui-doc-block">
+<h3 class="rui-doc-block__title">Range</h3>
+<div class="rui-doc-example">
+  <div class="rui-doc-demo rui-doc-demo--plain">
+    <div style="width:100%;max-width:460px;display:flex;flex-direction:column;gap:18px">
+      <div class="rui-field">
+        <label class="rui-field__label" for="sl1">Grid density</label>
+        <div class="rui-slider-row">
+          <input class="rui-slider" id="sl1" type="range" min="2" max="8" value="4" data-rui-slider="sl1-out" data-suffix=" cols">
+          <output class="rui-slider-row__value" id="sl1-out" for="sl1">4 cols</output>
+        </div>
+      </div>
+      <div class="rui-field">
+        <label class="rui-field__label" for="sl2">Colour similarity</label>
+        <div class="rui-slider-row">
+          <input class="rui-slider" id="sl2" type="range" min="0" max="100" value="72" data-rui-slider="sl2-out" data-suffix="%">
+          <output class="rui-slider-row__value" id="sl2-out" for="sl2">72%</output>
+        </div>
+      </div>
+    </div>
+  </div>
+  <pre class="rui-doc-code" id="rui-code-14" tabindex="0"><code>&lt;<span class="rui-doc-code__tag">div</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-slider-row"</span>&gt;
+  &lt;<span class="rui-doc-code__tag">input</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-slider"</span> <span class="rui-doc-code__attr">id</span>=<span class="rui-doc-code__val">"sl1"</span> <span class="rui-doc-code__attr">type</span>=<span class="rui-doc-code__val">"range"</span> <span class="rui-doc-code__attr">min</span>=<span class="rui-doc-code__val">"2"</span> <span class="rui-doc-code__attr">max</span>=<span class="rui-doc-code__val">"8"</span> <span class="rui-doc-code__attr">value</span>=<span class="rui-doc-code__val">"4"</span>
+         <span class="rui-doc-code__attr">data-rui-slider</span>=<span class="rui-doc-code__val">"sl1-out"</span> <span class="rui-doc-code__attr">data-suffix</span>=<span class="rui-doc-code__val">" cols"</span>&gt;
+  &lt;<span class="rui-doc-code__tag">output</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-slider-row__value"</span> <span class="rui-doc-code__attr">id</span>=<span class="rui-doc-code__val">"sl1-out"</span> <span class="rui-doc-code__attr">for</span>=<span class="rui-doc-code__val">"sl1"</span>&gt;4 cols&lt;/<span class="rui-doc-code__tag">output</span>&gt;
+&lt;/<span class="rui-doc-code__tag">div</span>&gt;</code></pre>
+  <div class="rui-doc-example__foot"><span></span><button class="rui-btn rui-btn--sm rui-btn--ghost" data-rui-copy="rui-code-14"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8.5" y="8.5" width="12" height="12" rx="2.2"/><path d="M15.5 5.5H6a2.5 2.5 0 0 0-2.5 2.5v9.5"/></svg> Copy</button></div>
+</div>
+</div>
+</section>
+
+<section class="rui-doc-section" id="chips" aria-labelledby="chips-h">
+  <div class="rui-doc-section__head">
+    <p class="rui-eyebrow">Selection</p>
+    <h2 class="rui-doc-section__title" id="chips-h">Filter chips &amp; badges</h2>
+    <p class="rui-doc-section__lede">Chips are the filtering primitive: fully round, toggleable, and inverting to solid when active. Badges are their static cousin &mdash; same silhouette, no interaction, and the one component that carries hue.</p>
+  </div>
+<div class="rui-doc-block">
+<h3 class="rui-doc-block__title">Filter chips <span class="rui-doc-block__note">toggle them</span></h3>
+<div class="rui-doc-example">
+  <div class="rui-doc-demo rui-doc-demo--plain">
+    <div class="rui-chip-row">
+      <button class="rui-chip" data-rui-chip aria-pressed="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7"/></svg>Landing page<span class="rui-chip__count">2,418</span></button>
+      <button class="rui-chip" data-rui-chip aria-pressed="false">Onboarding<span class="rui-chip__count">1,204</span></button>
+      <button class="rui-chip" data-rui-chip aria-pressed="false">Pricing<span class="rui-chip__count">861</span></button>
+      <button class="rui-chip" data-rui-chip aria-pressed="false">Settings<span class="rui-chip__count">742</span></button>
+      <button class="rui-chip" data-rui-chip aria-pressed="false">Empty state<span class="rui-chip__count">318</span></button>
+      <button class="rui-chip" data-rui-chip aria-pressed="false">Checkout<span class="rui-chip__count">297</span></button>
+    </div>
+  </div>
+  <pre class="rui-doc-code" id="rui-code-15" tabindex="0"><code>&lt;<span class="rui-doc-code__tag">button</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-chip"</span> data-rui-chip <span class="rui-doc-code__attr">aria-pressed</span>=<span class="rui-doc-code__val">"true"</span>&gt;
+  &lt;<span class="rui-doc-code__tag">svg</span>&gt;…&lt;/<span class="rui-doc-code__tag">svg</span>&gt;Landing page&lt;<span class="rui-doc-code__tag">span</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-chip__count"</span>&gt;2,418&lt;/<span class="rui-doc-code__tag">span</span>&gt;
+&lt;/<span class="rui-doc-code__tag">button</span>&gt;</code></pre>
+  <div class="rui-doc-example__foot"><span>State lives in aria-pressed, so assistive tech reads the filter correctly.</span><button class="rui-btn rui-btn--sm rui-btn--ghost" data-rui-copy="rui-code-15"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8.5" y="8.5" width="12" height="12" rx="2.2"/><path d="M15.5 5.5H6a2.5 2.5 0 0 0-2.5 2.5v9.5"/></svg> Copy</button></div>
+</div>
+</div>
+<div class="rui-doc-block">
+<h3 class="rui-doc-block__title">Badges</h3>
+<div class="rui-doc-example">
+  <div class="rui-doc-demo ">
+    <span class="rui-badge">Web</span>
+    <span class="rui-badge rui-badge--solid">New</span>
+    <span class="rui-badge rui-badge--green"><span class="rui-badge__dot"></span>Live</span>
+    <span class="rui-badge rui-badge--amber"><span class="rui-badge__dot"></span>Queued</span>
+    <span class="rui-badge rui-badge--red"><span class="rui-badge__dot"></span>Failed</span>
+  </div>
+  <pre class="rui-doc-code" id="rui-code-16" tabindex="0"><code>&lt;<span class="rui-doc-code__tag">span</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-badge"</span>&gt;Web&lt;/<span class="rui-doc-code__tag">span</span>&gt;
+&lt;<span class="rui-doc-code__tag">span</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-badge rui-badge--solid"</span>&gt;New&lt;/<span class="rui-doc-code__tag">span</span>&gt;
+&lt;<span class="rui-doc-code__tag">span</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-badge rui-badge--green"</span>&gt;&lt;<span class="rui-doc-code__tag">span</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-badge__dot"</span>&gt;&lt;/<span class="rui-doc-code__tag">span</span>&gt;Live&lt;/<span class="rui-doc-code__tag">span</span>&gt;
+&lt;<span class="rui-doc-code__tag">span</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-badge rui-badge--amber"</span>&gt;&lt;<span class="rui-doc-code__tag">span</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-badge__dot"</span>&gt;&lt;/<span class="rui-doc-code__tag">span</span>&gt;Queued&lt;/<span class="rui-doc-code__tag">span</span>&gt;
+&lt;<span class="rui-doc-code__tag">span</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-badge rui-badge--red"</span>&gt;&lt;<span class="rui-doc-code__tag">span</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-badge__dot"</span>&gt;&lt;/<span class="rui-doc-code__tag">span</span>&gt;Failed&lt;/<span class="rui-doc-code__tag">span</span>&gt;</code></pre>
+  <div class="rui-doc-example__foot"><span></span><button class="rui-btn rui-btn--sm rui-btn--ghost" data-rui-copy="rui-code-16"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8.5" y="8.5" width="12" height="12" rx="2.2"/><path d="M15.5 5.5H6a2.5 2.5 0 0 0-2.5 2.5v9.5"/></svg> Copy</button></div>
+</div>
+</div>
+</section>
+
+<section class="rui-doc-section" id="segmented" aria-labelledby="segmented-h">
+  <div class="rui-doc-section__head">
+    <p class="rui-eyebrow">Selection</p>
+    <h2 class="rui-doc-section__title" id="segmented-h">Segmented control &amp; tabs</h2>
+    <p class="rui-doc-section__lede">Both are single-select navigation with roving tabindex and arrow-key movement. The segmented control is a radiogroup for switching a view in place; tabs own a panel each.</p>
+  </div>
+<div class="rui-doc-block">
+<h3 class="rui-doc-block__title">Segmented control <span class="rui-doc-block__note">arrow keys move and select</span></h3>
+<div class="rui-doc-example">
+  <div class="rui-doc-demo ">
+    <div class="rui-segmented" data-rui-segmented aria-label="Sort references">
+      <button class="rui-segmented__item" aria-checked="true" data-value="popular">Popular</button>
+      <button class="rui-segmented__item" aria-checked="false" data-value="recent">Recent</button>
+      <button class="rui-segmented__item" aria-checked="false" data-value="random">Random</button>
+    </div>
+    <div class="rui-segmented" data-rui-segmented aria-label="View mode">
+      <button class="rui-segmented__item" aria-checked="true" aria-label="Grid"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="3.5" width="7" height="7" rx="1.6"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.6"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.6"/><rect x="13.5" y="13.5" width="7" height="7" rx="1.6"/></svg></button>
+      <button class="rui-segmented__item" aria-checked="false" aria-label="List"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 6h17M6.5 12h11M10 18h4"/></svg></button>
+    </div>
+  </div>
+  <pre class="rui-doc-code" id="rui-code-17" tabindex="0"><code>&lt;<span class="rui-doc-code__tag">div</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-segmented"</span> data-rui-segmented <span class="rui-doc-code__attr">aria-label</span>=<span class="rui-doc-code__val">"Sort references"</span>&gt;
+  &lt;<span class="rui-doc-code__tag">button</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-segmented__item"</span> <span class="rui-doc-code__attr">aria-checked</span>=<span class="rui-doc-code__val">"true"</span> <span class="rui-doc-code__attr">data-value</span>=<span class="rui-doc-code__val">"popular"</span>&gt;Popular&lt;/<span class="rui-doc-code__tag">button</span>&gt;
+  &lt;<span class="rui-doc-code__tag">button</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-segmented__item"</span> <span class="rui-doc-code__attr">aria-checked</span>=<span class="rui-doc-code__val">"false"</span> <span class="rui-doc-code__attr">data-value</span>=<span class="rui-doc-code__val">"recent"</span>&gt;Recent&lt;/<span class="rui-doc-code__tag">button</span>&gt;
+  &lt;<span class="rui-doc-code__tag">button</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-segmented__item"</span> <span class="rui-doc-code__attr">aria-checked</span>=<span class="rui-doc-code__val">"false"</span> <span class="rui-doc-code__attr">data-value</span>=<span class="rui-doc-code__val">"random"</span>&gt;Random&lt;/<span class="rui-doc-code__tag">button</span>&gt;
+&lt;/<span class="rui-doc-code__tag">div</span>&gt;</code></pre>
+  <div class="rui-doc-example__foot"><span></span><button class="rui-btn rui-btn--sm rui-btn--ghost" data-rui-copy="rui-code-17"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8.5" y="8.5" width="12" height="12" rx="2.2"/><path d="M15.5 5.5H6a2.5 2.5 0 0 0-2.5 2.5v9.5"/></svg> Copy</button></div>
+</div>
+</div>
+<div class="rui-doc-block">
+<h3 class="rui-doc-block__title">Tabs <span class="rui-doc-block__note">Left/Right, Home/End</span></h3>
+<div class="rui-doc-example">
+  <div class="rui-doc-demo rui-doc-demo--plain">
+    <div class="rui-tabs" data-rui-tabs style="width:100%">
+      <div class="rui-tablist" role="tablist" aria-label="Reference details">
+        <button class="rui-tab" role="tab" id="t-1" aria-controls="p-1" aria-selected="true">Overview</button>
+        <button class="rui-tab" role="tab" id="t-2" aria-controls="p-2" aria-selected="false">Palette</button>
+        <button class="rui-tab" role="tab" id="t-3" aria-controls="p-3" aria-selected="false">Typography</button>
+        <button class="rui-tab" role="tab" id="t-4" aria-controls="p-4" aria-selected="false">Similar</button>
+      </div>
+      <div class="rui-tabpanel" role="tabpanel" id="p-1" aria-labelledby="t-1" tabindex="0">
+        <p class="rui-small rui-muted" style="margin:0">Captured on 12 March from a 1440&#215;900 viewport. Tagged as a pricing page with a three-tier comparison table and an annual/monthly toggle.</p>
+      </div>
+      <div class="rui-tabpanel" role="tabpanel" id="p-2" aria-labelledby="t-2" tabindex="0" hidden>
+        <p class="rui-small rui-muted" style="margin:0">Six colours extracted. The page runs almost entirely on neutrals, with a single saturated accent reserved for the recommended tier.</p>
+      </div>
+      <div class="rui-tabpanel" role="tabpanel" id="p-3" aria-labelledby="t-3" tabindex="0" hidden>
+        <p class="rui-small rui-muted" style="margin:0">Two families: a geometric sans for the interface and a high-contrast serif used only for the page title.</p>
+      </div>
+      <div class="rui-tabpanel" role="tabpanel" id="p-4" aria-labelledby="t-4" tabindex="0" hidden>
+        <p class="rui-small rui-muted" style="margin:0">Eighteen references share this layout: a centred header, a three-column comparison and a frequently-asked-questions accordion below the fold.</p>
+      </div>
+    </div>
+  </div>
+  <pre class="rui-doc-code" id="rui-code-18" tabindex="0"><code>&lt;<span class="rui-doc-code__tag">div</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-tabs"</span> data-rui-tabs&gt;
+  &lt;<span class="rui-doc-code__tag">div</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-tablist"</span> <span class="rui-doc-code__attr">role</span>=<span class="rui-doc-code__val">"tablist"</span> <span class="rui-doc-code__attr">aria-label</span>=<span class="rui-doc-code__val">"Reference details"</span>&gt;
+    &lt;<span class="rui-doc-code__tag">button</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-tab"</span> <span class="rui-doc-code__attr">role</span>=<span class="rui-doc-code__val">"tab"</span> <span class="rui-doc-code__attr">id</span>=<span class="rui-doc-code__val">"t-1"</span> <span class="rui-doc-code__attr">aria-controls</span>=<span class="rui-doc-code__val">"p-1"</span> <span class="rui-doc-code__attr">aria-selected</span>=<span class="rui-doc-code__val">"true"</span>&gt;Overview&lt;/<span class="rui-doc-code__tag">button</span>&gt;
+    &lt;<span class="rui-doc-code__tag">button</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-tab"</span> <span class="rui-doc-code__attr">role</span>=<span class="rui-doc-code__val">"tab"</span> <span class="rui-doc-code__attr">id</span>=<span class="rui-doc-code__val">"t-2"</span> <span class="rui-doc-code__attr">aria-controls</span>=<span class="rui-doc-code__val">"p-2"</span> <span class="rui-doc-code__attr">aria-selected</span>=<span class="rui-doc-code__val">"false"</span>&gt;Palette&lt;/<span class="rui-doc-code__tag">button</span>&gt;
+  &lt;/<span class="rui-doc-code__tag">div</span>&gt;
+  &lt;<span class="rui-doc-code__tag">div</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-tabpanel"</span> <span class="rui-doc-code__attr">role</span>=<span class="rui-doc-code__val">"tabpanel"</span> <span class="rui-doc-code__attr">id</span>=<span class="rui-doc-code__val">"p-1"</span> <span class="rui-doc-code__attr">aria-labelledby</span>=<span class="rui-doc-code__val">"t-1"</span> <span class="rui-doc-code__attr">tabindex</span>=<span class="rui-doc-code__val">"0"</span>&gt;…&lt;/<span class="rui-doc-code__tag">div</span>&gt;
+  &lt;<span class="rui-doc-code__tag">div</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-tabpanel"</span> <span class="rui-doc-code__attr">role</span>=<span class="rui-doc-code__val">"tabpanel"</span> <span class="rui-doc-code__attr">id</span>=<span class="rui-doc-code__val">"p-2"</span> <span class="rui-doc-code__attr">aria-labelledby</span>=<span class="rui-doc-code__val">"t-2"</span> <span class="rui-doc-code__attr">tabindex</span>=<span class="rui-doc-code__val">"0"</span> hidden&gt;…&lt;/<span class="rui-doc-code__tag">div</span>&gt;
+&lt;/<span class="rui-doc-code__tag">div</span>&gt;</code></pre>
+  <div class="rui-doc-example__foot"><span></span><button class="rui-btn rui-btn--sm rui-btn--ghost" data-rui-copy="rui-code-18"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8.5" y="8.5" width="12" height="12" rx="2.2"/><path d="M15.5 5.5H6a2.5 2.5 0 0 0-2.5 2.5v9.5"/></svg> Copy</button></div>
+</div>
+</div>
+</section>
+
+<section class="rui-doc-section" id="menu" aria-labelledby="menu-h">
+  <div class="rui-doc-section__head">
+    <p class="rui-eyebrow">Selection</p>
+    <h2 class="rui-doc-section__title" id="menu-h">Dropdown menu</h2>
+    <p class="rui-doc-section__lede">Opens on click, Enter, Space or Arrow Down. Arrow keys walk the items, Escape closes and returns focus to the trigger, and a click anywhere outside dismisses it.</p>
+  </div>
+<div class="rui-doc-block">
+<h3 class="rui-doc-block__title">Menu</h3>
+<div class="rui-doc-example">
+  <div class="rui-doc-demo ">
+    <div class="rui-menu" data-rui-menu>
+      <button class="rui-btn rui-btn--secondary" data-rui-menu-trigger>Reference actions<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9.5 6 6 6-6"/></svg></button>
+      <ul class="rui-menu__list" role="menu" aria-label="Reference actions">
+        <li class="rui-menu__label" role="presentation">This screen</li>
+        <li role="none"><button class="rui-menu__item" role="menuitem"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.5 4h11v16.2l-5.5-3.7-5.5 3.7V4Z"/></svg>Save to collection<span class="rui-menu__shortcut">S</span></button></li>
+        <li role="none"><button class="rui-menu__item" role="menuitem"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8.5" y="8.5" width="12" height="12" rx="2.2"/><path d="M15.5 5.5H6a2.5 2.5 0 0 0-2.5 2.5v9.5"/></svg>Copy link<span class="rui-menu__shortcut">⌘C</span></button></li>
+        <li role="none"><button class="rui-menu__item" role="menuitem"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v10.5M7.5 10.5 12 15l4.5-4.5"/><path d="M4.5 19.5h15"/></svg>Download PNG</button></li>
+        <li class="rui-menu__sep" role="separator"></li>
+        <li role="none"><button class="rui-menu__item rui-menu__item--danger" role="menuitem"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 6.5h15M9.5 6.5V4.8A1.3 1.3 0 0 1 10.8 3.5h2.4a1.3 1.3 0 0 1 1.3 1.3v1.7"/><path d="M6.5 6.5 7.4 20a1.3 1.3 0 0 0 1.3 1.2h6.6a1.3 1.3 0 0 0 1.3-1.2l.9-13.5"/></svg>Remove</button></li>
+      </ul>
+    </div>
+  </div>
+  <pre class="rui-doc-code" id="rui-code-19" tabindex="0"><code>&lt;<span class="rui-doc-code__tag">div</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-menu"</span> data-rui-menu&gt;
+  &lt;<span class="rui-doc-code__tag">button</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-btn rui-btn--secondary"</span> data-rui-menu-trigger&gt;Reference actions&lt;<span class="rui-doc-code__tag">svg</span>&gt;…&lt;/<span class="rui-doc-code__tag">svg</span>&gt;&lt;/<span class="rui-doc-code__tag">button</span>&gt;
+  &lt;<span class="rui-doc-code__tag">ul</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-menu__list"</span> <span class="rui-doc-code__attr">role</span>=<span class="rui-doc-code__val">"menu"</span> <span class="rui-doc-code__attr">aria-label</span>=<span class="rui-doc-code__val">"Reference actions"</span>&gt;
+    &lt;<span class="rui-doc-code__tag">li</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-menu__label"</span> <span class="rui-doc-code__attr">role</span>=<span class="rui-doc-code__val">"presentation"</span>&gt;This screen&lt;/<span class="rui-doc-code__tag">li</span>&gt;
+    &lt;<span class="rui-doc-code__tag">li</span> <span class="rui-doc-code__attr">role</span>=<span class="rui-doc-code__val">"none"</span>&gt;&lt;<span class="rui-doc-code__tag">button</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-menu__item"</span> <span class="rui-doc-code__attr">role</span>=<span class="rui-doc-code__val">"menuitem"</span>&gt;Save to collection&lt;/<span class="rui-doc-code__tag">button</span>&gt;&lt;/<span class="rui-doc-code__tag">li</span>&gt;
+    &lt;<span class="rui-doc-code__tag">li</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-menu__sep"</span> <span class="rui-doc-code__attr">role</span>=<span class="rui-doc-code__val">"separator"</span>&gt;&lt;/<span class="rui-doc-code__tag">li</span>&gt;
+    &lt;<span class="rui-doc-code__tag">li</span> <span class="rui-doc-code__attr">role</span>=<span class="rui-doc-code__val">"none"</span>&gt;&lt;<span class="rui-doc-code__tag">button</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-menu__item rui-menu__item--danger"</span> <span class="rui-doc-code__attr">role</span>=<span class="rui-doc-code__val">"menuitem"</span>&gt;Remove&lt;/<span class="rui-doc-code__tag">button</span>&gt;&lt;/<span class="rui-doc-code__tag">li</span>&gt;
+  &lt;/<span class="rui-doc-code__tag">ul</span>&gt;
+&lt;/<span class="rui-doc-code__tag">div</span>&gt;</code></pre>
+  <div class="rui-doc-example__foot"><span></span><button class="rui-btn rui-btn--sm rui-btn--ghost" data-rui-copy="rui-code-19"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8.5" y="8.5" width="12" height="12" rx="2.2"/><path d="M15.5 5.5H6a2.5 2.5 0 0 0-2.5 2.5v9.5"/></svg> Copy</button></div>
+</div>
+</div>
+</section>
+
+<section class="rui-doc-section" id="cards" aria-labelledby="cards-h">
+  <div class="rui-doc-section__head">
+    <p class="rui-eyebrow">Containers</p>
+    <h2 class="rui-doc-section__title" id="cards-h">Card</h2>
+    <p class="rui-doc-section__lede">16px radius, a hairline drawn as an inset shadow and a navy-tinted drop shadow. The interactive modifier adds a one-pixel lift on hover &mdash; enough to register, not enough to bounce.</p>
+  </div>
+<div class="rui-doc-block">
+<h3 class="rui-doc-block__title">Card</h3>
+<div class="rui-doc-example">
+  <div class="rui-doc-demo rui-doc-demo--plain">
+    <div class="rui-card-grid" style="width:100%">
+      <article class="rui-card">
+        <div class="rui-card__header">
+          <h4 class="rui-card__title">Weekly digest</h4>
+          <span class="rui-badge rui-badge--green"><span class="rui-badge__dot"></span>On</span>
+        </div>
+        <p class="rui-card__body">Every Tuesday we send the twenty most-saved screens from the previous week, grouped by pattern.</p>
+        <div class="rui-card__footer">
+          <button class="rui-btn rui-btn--sm rui-btn--secondary">Manage</button>
+          <button class="rui-btn rui-btn--sm rui-btn--ghost">Preview</button>
+        </div>
+      </article>
+      <a class="rui-card rui-card--interactive" href="#cards">
+        <div class="rui-card__header">
+          <h4 class="rui-card__title">Onboarding flows</h4>
+          <span class="rui-badge">184</span>
+        </div>
+        <p class="rui-card__body">Multi-step sign-up, permission priming and first-run tours, collected across web and iOS.</p>
+        <div class="rui-card__footer">
+          <span class="rui-avatar-group">
+            <span class="rui-avatar rui-avatar--sm">AK</span>
+            <span class="rui-avatar rui-avatar--sm">MR</span>
+            <span class="rui-avatar rui-avatar--sm rui-avatar-group__more">+6</span>
+          </span>
+          <span class="rui-small rui-muted" style="margin-left:auto">Updated 2d ago</span>
+        </div>
+      </a>
+    </div>
+  </div>
+  <pre class="rui-doc-code" id="rui-code-20" tabindex="0"><code>&lt;<span class="rui-doc-code__tag">article</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-card"</span>&gt;
+  &lt;<span class="rui-doc-code__tag">div</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-card__header"</span>&gt;
+    &lt;<span class="rui-doc-code__tag">h4</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-card__title"</span>&gt;Weekly digest&lt;/<span class="rui-doc-code__tag">h4</span>&gt;
+    &lt;<span class="rui-doc-code__tag">span</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-badge rui-badge--green"</span>&gt;&lt;<span class="rui-doc-code__tag">span</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-badge__dot"</span>&gt;&lt;/<span class="rui-doc-code__tag">span</span>&gt;On&lt;/<span class="rui-doc-code__tag">span</span>&gt;
+  &lt;/<span class="rui-doc-code__tag">div</span>&gt;
+  &lt;<span class="rui-doc-code__tag">p</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-card__body"</span>&gt;Every Tuesday we send the twenty most-saved screens…&lt;/<span class="rui-doc-code__tag">p</span>&gt;
+  &lt;<span class="rui-doc-code__tag">div</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-card__footer"</span>&gt;
+    &lt;<span class="rui-doc-code__tag">button</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-btn rui-btn--sm rui-btn--secondary"</span>&gt;Manage&lt;/<span class="rui-doc-code__tag">button</span>&gt;
+  &lt;/<span class="rui-doc-code__tag">div</span>&gt;
+&lt;/<span class="rui-doc-code__tag">article</span>&gt;</code></pre>
+  <div class="rui-doc-example__foot"><span></span><button class="rui-btn rui-btn--sm rui-btn--ghost" data-rui-copy="rui-code-20"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8.5" y="8.5" width="12" height="12" rx="2.2"/><path d="M15.5 5.5H6a2.5 2.5 0 0 0-2.5 2.5v9.5"/></svg> Copy</button></div>
+</div>
+</div>
+</section>
+
+<section class="rui-doc-section" id="media-cards" aria-labelledby="media-cards-h">
+  <div class="rui-doc-section__head">
+    <p class="rui-eyebrow">Containers</p>
+    <h2 class="rui-doc-section__title" id="media-cards-h">Media card</h2>
+    <p class="rui-doc-section__lede">The component the whole product is built around. A thumbnail, a metadata row, and an overlay that slides up on hover to surface platform and save count without stealing space from the grid. On touch devices, where there is no hover, the overlay is simply always visible.</p>
+  </div>
+<div class="rui-doc-block">
+<h3 class="rui-doc-block__title">Card grid <span class="rui-doc-block__note">hover a card</span></h3>
+<div class="rui-doc-example">
+  <div class="rui-doc-demo rui-doc-demo--plain">
+    <div class="rui-card-grid rui-card-grid--wide" style="width:100%">
+        <a class="rui-media-card" href="#media-cards">
+          <span class="rui-media-card__thumb">
+            <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Interface screenshot"><defs><linearGradient id="g27750" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1f2a52"/><stop offset="1" stop-color="#3b4f8f"/></linearGradient></defs><rect width="400" height="300" fill="url(#g27750)"/><rect x="24" y="24" width="120" height="252" rx="14" fill="#ffffff" opacity=".14"/><rect x="38" y="44" width="78" height="8" rx="4" fill="#ffffff" opacity=".55"/><rect x="38" y="68" width="69" height="8" rx="4" fill="#ffffff" opacity=".25"/><rect x="38" y="92" width="60" height="8" rx="4" fill="#ffffff" opacity=".25"/><rect x="38" y="116" width="51" height="8" rx="4" fill="#ffffff" opacity=".25"/><rect x="160" y="24" width="216" height="96" rx="14" fill="#ffffff" opacity=".2"/><rect x="176" y="104" width="22" height="8" rx="6" fill="#8ab4ff" opacity=".6"/><rect x="216" y="92" width="22" height="20" rx="6" fill="#8ab4ff" opacity=".6"/><rect x="256" y="80" width="22" height="32" rx="6" fill="#8ab4ff" opacity=".6"/><rect x="296" y="68" width="22" height="44" rx="6" fill="#8ab4ff" opacity=".6"/><rect x="336" y="56" width="22" height="56" rx="6" fill="#8ab4ff" opacity=".6"/><rect x="160" y="136" width="216" height="60" rx="14" fill="#ffffff" opacity=".14"/><rect x="160" y="208" width="216" height="68" rx="14" fill="#ffffff" opacity=".14"/></svg>
+            <span class="rui-media-card__reveal">
+              <span class="rui-badge">Web</span>
+              <span class="rui-badge">1.4k saves</span>
+            </span>
+          </span>
+          <span class="rui-media-card__meta">
+            <span class="rui-avatar rui-avatar--sm rui-avatar--square">H</span>
+            <span class="rui-media-card__text">
+              <span class="rui-media-card__title">Halcyon</span>
+              <span class="rui-media-card__sub">Analytics dashboard</span>
+            </span>
+            <span class="rui-media-card__trail"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12h14M13.5 7l5 5-5 5"/></svg></span>
+          </span>
+        </a>
+        <a class="rui-media-card" href="#media-cards">
+          <span class="rui-media-card__thumb">
+            <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Interface screenshot"><defs><linearGradient id="g93611" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#132b25"/><stop offset="1" stop-color="#1f5c46"/></linearGradient></defs><rect width="400" height="300" fill="url(#g93611)"/><rect x="0" y="0" width="400" height="52" fill="#ffffff" opacity=".16"/><circle cx="30" cy="26" r="11" fill="#57e0a8" opacity=".5"/><rect x="52" y="21" width="96" height="9" rx="4.5" fill="#ffffff" opacity=".45"/><rect x="300" y="17" width="76" height="18" rx="9" fill="#57e0a8" opacity=".55"/><rect x="24" y="70" width="352" height="62" rx="14" fill="#ffffff" opacity=".15"/><circle cx="52" cy="101" r="14" fill="#ffffff" opacity=".45"/><rect x="78" y="89" width="150" height="8" rx="4" fill="#ffffff" opacity=".5"/><rect x="78" y="105" width="230" height="8" rx="4" fill="#ffffff" opacity=".25"/><rect x="24" y="148" width="352" height="62" rx="14" fill="#ffffff" opacity=".15"/><circle cx="52" cy="179" r="14" fill="#ffffff" opacity=".45"/><rect x="78" y="167" width="128" height="8" rx="4" fill="#ffffff" opacity=".5"/><rect x="78" y="183" width="200" height="8" rx="4" fill="#ffffff" opacity=".25"/><rect x="24" y="226" width="352" height="62" rx="14" fill="#ffffff" opacity=".15"/><circle cx="52" cy="257" r="14" fill="#ffffff" opacity=".45"/><rect x="78" y="245" width="106" height="8" rx="4" fill="#ffffff" opacity=".5"/><rect x="78" y="261" width="170" height="8" rx="4" fill="#ffffff" opacity=".25"/></svg>
+            <span class="rui-media-card__reveal">
+              <span class="rui-badge">iOS</span>
+              <span class="rui-badge">982 saves</span>
+            </span>
+          </span>
+          <span class="rui-media-card__meta">
+            <span class="rui-avatar rui-avatar--sm rui-avatar--square">M</span>
+            <span class="rui-media-card__text">
+              <span class="rui-media-card__title">Meridian Bank</span>
+              <span class="rui-media-card__sub">Transaction feed</span>
+            </span>
+            <span class="rui-media-card__trail"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12h14M13.5 7l5 5-5 5"/></svg></span>
+          </span>
+        </a>
+        <a class="rui-media-card" href="#media-cards">
+          <span class="rui-media-card__thumb">
+            <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Interface screenshot"><defs><linearGradient id="g79716" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3a1f38"/><stop offset="1" stop-color="#7b3560"/></linearGradient></defs><rect width="400" height="300" fill="url(#g79716)"/><circle cx="300" cy="80" r="120" fill="#ffffff" opacity=".12"/><circle cx="120" cy="220" r="90" fill="#ffb1d8" opacity=".18"/><path d="M0 190 Q100 120 200 176 T400 140" stroke="#ffffff" stroke-opacity=".5" stroke-width="3" fill="none"/><rect x="24" y="24" width="150" height="70" rx="16" fill="#ffffff" opacity=".22"/><rect x="40" y="44" width="76" height="9" rx="4.5" fill="#ffffff" opacity=".6"/><rect x="40" y="64" width="112" height="8" rx="4" fill="#ffffff" opacity=".3"/></svg>
+            <span class="rui-media-card__reveal">
+              <span class="rui-badge">Web</span>
+              <span class="rui-badge">764 saves</span>
+            </span>
+          </span>
+          <span class="rui-media-card__meta">
+            <span class="rui-avatar rui-avatar--sm rui-avatar--square">T</span>
+            <span class="rui-media-card__text">
+              <span class="rui-media-card__title">Tessellate</span>
+              <span class="rui-media-card__sub">Map explorer</span>
+            </span>
+            <span class="rui-media-card__trail"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12h14M13.5 7l5 5-5 5"/></svg></span>
+          </span>
+        </a>
+        <a class="rui-media-card" href="#media-cards">
+          <span class="rui-media-card__thumb">
+            <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Interface screenshot"><defs><linearGradient id="g90174" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#241d2f"/><stop offset="1" stop-color="#4a3a63"/></linearGradient></defs><rect width="400" height="300" fill="url(#g90174)"/><rect x="0" y="0" width="400" height="34" fill="#ffffff" opacity=".18"/><circle cx="18" cy="17" r="4.5" fill="#ffffff" opacity=".4"/><circle cx="34" cy="17" r="4.5" fill="#ffffff" opacity=".4"/><circle cx="50" cy="17" r="4.5" fill="#ffffff" opacity=".4"/><rect x="24" y="58" width="210" height="9" rx="4.5" fill="#c4a9ff" opacity=".65"/><rect x="24" y="82" width="150" height="9" rx="4.5" fill="#ffffff" opacity=".3"/><rect x="24" y="106" width="250" height="9" rx="4.5" fill="#ffffff" opacity=".3"/><rect x="24" y="130" width="180" height="9" rx="4.5" fill="#c4a9ff" opacity=".65"/><rect x="24" y="154" width="120" height="9" rx="4.5" fill="#ffffff" opacity=".3"/><rect x="24" y="178" width="230" height="9" rx="4.5" fill="#ffffff" opacity=".3"/><rect x="24" y="202" width="160" height="9" rx="4.5" fill="#c4a9ff" opacity=".65"/><rect x="24" y="226" width="200" height="9" rx="4.5" fill="#ffffff" opacity=".3"/><rect x="24" y="250" width="140" height="9" rx="4.5" fill="#ffffff" opacity=".3"/></svg>
+            <span class="rui-media-card__reveal">
+              <span class="rui-badge">Desktop</span>
+              <span class="rui-badge">651 saves</span>
+            </span>
+          </span>
+          <span class="rui-media-card__meta">
+            <span class="rui-avatar rui-avatar--sm rui-avatar--square">F</span>
+            <span class="rui-media-card__text">
+              <span class="rui-media-card__title">Foundry</span>
+              <span class="rui-media-card__sub">Code review</span>
+            </span>
+            <span class="rui-media-card__trail"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12h14M13.5 7l5 5-5 5"/></svg></span>
+          </span>
+        </a>
+        <a class="rui-media-card" href="#media-cards">
+          <span class="rui-media-card__thumb">
+            <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Interface screenshot"><defs><linearGradient id="g93103" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2c2413"/><stop offset="1" stop-color="#6b5423"/></linearGradient></defs><rect width="400" height="300" fill="url(#g93103)"/><rect x="0" y="0" width="400" height="52" fill="#ffffff" opacity=".16"/><circle cx="30" cy="26" r="11" fill="#ffd487" opacity=".5"/><rect x="52" y="21" width="96" height="9" rx="4.5" fill="#ffffff" opacity=".45"/><rect x="300" y="17" width="76" height="18" rx="9" fill="#ffd487" opacity=".55"/><rect x="24" y="70" width="352" height="62" rx="14" fill="#ffffff" opacity=".15"/><circle cx="52" cy="101" r="14" fill="#ffffff" opacity=".45"/><rect x="78" y="89" width="150" height="8" rx="4" fill="#ffffff" opacity=".5"/><rect x="78" y="105" width="230" height="8" rx="4" fill="#ffffff" opacity=".25"/><rect x="24" y="148" width="352" height="62" rx="14" fill="#ffffff" opacity=".15"/><circle cx="52" cy="179" r="14" fill="#ffffff" opacity=".45"/><rect x="78" y="167" width="128" height="8" rx="4" fill="#ffffff" opacity=".5"/><rect x="78" y="183" width="200" height="8" rx="4" fill="#ffffff" opacity=".25"/><rect x="24" y="226" width="352" height="62" rx="14" fill="#ffffff" opacity=".15"/><circle cx="52" cy="257" r="14" fill="#ffffff" opacity=".45"/><rect x="78" y="245" width="106" height="8" rx="4" fill="#ffffff" opacity=".5"/><rect x="78" y="261" width="170" height="8" rx="4" fill="#ffffff" opacity=".25"/></svg>
+            <span class="rui-media-card__reveal">
+              <span class="rui-badge">Web</span>
+              <span class="rui-badge">540 saves</span>
+            </span>
+          </span>
+          <span class="rui-media-card__meta">
+            <span class="rui-avatar rui-avatar--sm rui-avatar--square">C</span>
+            <span class="rui-media-card__text">
+              <span class="rui-media-card__title">Cadence</span>
+              <span class="rui-media-card__sub">Team activity</span>
+            </span>
+            <span class="rui-media-card__trail"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12h14M13.5 7l5 5-5 5"/></svg></span>
+          </span>
+        </a>
+        <a class="rui-media-card" href="#media-cards">
+          <span class="rui-media-card__thumb">
+            <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Interface screenshot"><defs><linearGradient id="g49289" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#12232b"/><stop offset="1" stop-color="#245a68"/></linearGradient></defs><rect width="400" height="300" fill="url(#g49289)"/><rect x="24" y="24" width="120" height="252" rx="14" fill="#ffffff" opacity=".14"/><rect x="38" y="44" width="78" height="8" rx="4" fill="#ffffff" opacity=".55"/><rect x="38" y="68" width="69" height="8" rx="4" fill="#ffffff" opacity=".25"/><rect x="38" y="92" width="60" height="8" rx="4" fill="#ffffff" opacity=".25"/><rect x="38" y="116" width="51" height="8" rx="4" fill="#ffffff" opacity=".25"/><rect x="160" y="24" width="216" height="96" rx="14" fill="#ffffff" opacity=".2"/><rect x="176" y="104" width="22" height="8" rx="6" fill="#7fe4f5" opacity=".6"/><rect x="216" y="92" width="22" height="20" rx="6" fill="#7fe4f5" opacity=".6"/><rect x="256" y="80" width="22" height="32" rx="6" fill="#7fe4f5" opacity=".6"/><rect x="296" y="68" width="22" height="44" rx="6" fill="#7fe4f5" opacity=".6"/><rect x="336" y="56" width="22" height="56" rx="6" fill="#7fe4f5" opacity=".6"/><rect x="160" y="136" width="216" height="60" rx="14" fill="#ffffff" opacity=".14"/><rect x="160" y="208" width="216" height="68" rx="14" fill="#ffffff" opacity=".14"/></svg>
+            <span class="rui-media-card__reveal">
+              <span class="rui-badge">Web</span>
+              <span class="rui-badge">418 saves</span>
+            </span>
+          </span>
+          <span class="rui-media-card__meta">
+            <span class="rui-avatar rui-avatar--sm rui-avatar--square">N</span>
+            <span class="rui-media-card__text">
+              <span class="rui-media-card__title">Northlight</span>
+              <span class="rui-media-card__sub">Usage report</span>
+            </span>
+            <span class="rui-media-card__trail"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12h14M13.5 7l5 5-5 5"/></svg></span>
+          </span>
+        </a></div>
+  </div>
+  <pre class="rui-doc-code" id="rui-code-21" tabindex="0"><code>&lt;<span class="rui-doc-code__tag">a</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-media-card"</span> <span class="rui-doc-code__attr">href</span>=<span class="rui-doc-code__val">"/r/halcyon"</span>&gt;
+  &lt;<span class="rui-doc-code__tag">span</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-media-card__thumb"</span>&gt;
+    &lt;<span class="rui-doc-code__tag">img</span> <span class="rui-doc-code__attr">src</span>=<span class="rui-doc-code__val">"/shots/halcyon.png"</span> <span class="rui-doc-code__attr">alt</span>=<span class="rui-doc-code__val">"Halcyon analytics dashboard"</span>&gt;
+    &lt;<span class="rui-doc-code__tag">span</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-media-card__reveal"</span>&gt;
+      &lt;<span class="rui-doc-code__tag">span</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-badge"</span>&gt;Web&lt;/<span class="rui-doc-code__tag">span</span>&gt;
+      &lt;<span class="rui-doc-code__tag">span</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-badge"</span>&gt;1.4k saves&lt;/<span class="rui-doc-code__tag">span</span>&gt;
+    &lt;/<span class="rui-doc-code__tag">span</span>&gt;
+  &lt;/<span class="rui-doc-code__tag">span</span>&gt;
+  &lt;<span class="rui-doc-code__tag">span</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-media-card__meta"</span>&gt;
+    &lt;<span class="rui-doc-code__tag">span</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-avatar rui-avatar--sm rui-avatar--square"</span>&gt;H&lt;/<span class="rui-doc-code__tag">span</span>&gt;
+    &lt;<span class="rui-doc-code__tag">span</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-media-card__text"</span>&gt;
+      &lt;<span class="rui-doc-code__tag">span</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-media-card__title"</span>&gt;Halcyon&lt;/<span class="rui-doc-code__tag">span</span>&gt;
+      &lt;<span class="rui-doc-code__tag">span</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-media-card__sub"</span>&gt;Analytics dashboard&lt;/<span class="rui-doc-code__tag">span</span>&gt;
+    &lt;/<span class="rui-doc-code__tag">span</span>&gt;
+    &lt;<span class="rui-doc-code__tag">span</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-media-card__trail"</span>&gt;&lt;<span class="rui-doc-code__tag">svg</span>&gt;…&lt;/<span class="rui-doc-code__tag">svg</span>&gt;&lt;/<span class="rui-doc-code__tag">span</span>&gt;
+  &lt;/<span class="rui-doc-code__tag">span</span>&gt;
+&lt;/<span class="rui-doc-code__tag">a</span>&gt;</code></pre>
+  <div class="rui-doc-example__foot"><span>Thumbnails here are inline SVG so the page works with no network at all.</span><button class="rui-btn rui-btn--sm rui-btn--ghost" data-rui-copy="rui-code-21"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8.5" y="8.5" width="12" height="12" rx="2.2"/><path d="M15.5 5.5H6a2.5 2.5 0 0 0-2.5 2.5v9.5"/></svg> Copy</button></div>
+</div>
+</div>
+</section>
+
+<section class="rui-doc-section" id="accordion" aria-labelledby="accordion-h">
+  <div class="rui-doc-section__head">
+    <p class="rui-eyebrow">Containers</p>
+    <h2 class="rui-doc-section__title" id="accordion-h">Accordion</h2>
+    <p class="rui-doc-section__lede">Buttons wired to panels with <code>aria-expanded</code> and <code>aria-controls</code>. Single-open by default; set <code>data-multiple="true"</code> to let several stay open.</p>
+  </div>
+<div class="rui-doc-block">
+<h3 class="rui-doc-block__title">Accordion</h3>
+<div class="rui-doc-example">
+  <div class="rui-doc-demo rui-doc-demo--plain">
+    <div class="rui-accordion" data-rui-accordion style="width:100%">
+      <div class="rui-accordion__item">
+        <button class="rui-accordion__trigger" id="ac-1" aria-controls="acp-1" aria-expanded="true" data-rui-accordion-trigger>How are screens captured?<span class="rui-accordion__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9.5 6 6 6-6"/></svg></span></button>
+        <div class="rui-accordion__panel" id="acp-1">Every reference is captured at a fixed 1440&#215;900 viewport on a clean profile, with cookie banners and consent overlays dismissed first, so layouts stay comparable across the library.</div>
+      </div>
+      <div class="rui-accordion__item">
+        <button class="rui-accordion__trigger" id="ac-2" aria-controls="acp-2" aria-expanded="false" data-rui-accordion-trigger>Can I search by colour?<span class="rui-accordion__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9.5 6 6 6-6"/></svg></span></button>
+        <div class="rui-accordion__panel" id="acp-2" hidden>Yes. Each capture is reduced to a six-colour palette, and the colour filter matches against those swatches with a tolerance you control from the slider.</div>
+      </div>
+      <div class="rui-accordion__item">
+        <button class="rui-accordion__trigger" id="ac-3" aria-controls="acp-3" aria-expanded="false" data-rui-accordion-trigger>What happens when a site redesigns?<span class="rui-accordion__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9.5 6 6 6-6"/></svg></span></button>
+        <div class="rui-accordion__panel" id="acp-3" hidden>Old captures are kept and dated rather than replaced. A redesign creates a new entry, and both versions stay linked so you can read the change as a before and after.</div>
+      </div>
+    </div>
+  </div>
+  <pre class="rui-doc-code" id="rui-code-22" tabindex="0"><code>&lt;<span class="rui-doc-code__tag">div</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-accordion"</span> data-rui-accordion&gt;
+  &lt;<span class="rui-doc-code__tag">div</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-accordion__item"</span>&gt;
+    &lt;<span class="rui-doc-code__tag">button</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-accordion__trigger"</span> <span class="rui-doc-code__attr">id</span>=<span class="rui-doc-code__val">"ac-1"</span> <span class="rui-doc-code__attr">aria-controls</span>=<span class="rui-doc-code__val">"acp-1"</span>
+            <span class="rui-doc-code__attr">aria-expanded</span>=<span class="rui-doc-code__val">"true"</span> data-rui-accordion-trigger&gt;
+      How are screens captured?&lt;<span class="rui-doc-code__tag">span</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-accordion__icon"</span>&gt;&lt;<span class="rui-doc-code__tag">svg</span>&gt;…&lt;/<span class="rui-doc-code__tag">svg</span>&gt;&lt;/<span class="rui-doc-code__tag">span</span>&gt;
+    &lt;/<span class="rui-doc-code__tag">button</span>&gt;
+    &lt;<span class="rui-doc-code__tag">div</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-accordion__panel"</span> <span class="rui-doc-code__attr">id</span>=<span class="rui-doc-code__val">"acp-1"</span>&gt;Every reference is captured at…&lt;/<span class="rui-doc-code__tag">div</span>&gt;
+  &lt;/<span class="rui-doc-code__tag">div</span>&gt;
+&lt;/<span class="rui-doc-code__tag">div</span>&gt;</code></pre>
+  <div class="rui-doc-example__foot"><span></span><button class="rui-btn rui-btn--sm rui-btn--ghost" data-rui-copy="rui-code-22"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8.5" y="8.5" width="12" height="12" rx="2.2"/><path d="M15.5 5.5H6a2.5 2.5 0 0 0-2.5 2.5v9.5"/></svg> Copy</button></div>
+</div>
+</div>
+</section>
+
+<section class="rui-doc-section" id="table" aria-labelledby="table-h">
+  <div class="rui-doc-section__head">
+    <p class="rui-eyebrow">Containers</p>
+    <h2 class="rui-doc-section__title" id="table-h">Table</h2>
+    <p class="rui-doc-section__lede">Row separators are inset shadows so they never add to the row height. The wrapper scrolls horizontally on its own &mdash; the page body never does.</p>
+  </div>
+<div class="rui-doc-block">
+<h3 class="rui-doc-block__title">Table <span class="rui-doc-block__note">narrow the window to see it scroll</span></h3>
+<div class="rui-doc-example">
+  <div class="rui-doc-demo rui-doc-demo--plain">
+    <div class="rui-table-wrap">
+      <table class="rui-table">
+        <caption class="rui-sr-only">Collections in this workspace</caption>
+        <thead>
+          <tr><th scope="col">Collection</th><th scope="col">Owner</th><th scope="col">Visibility</th><th scope="col">Status</th><th scope="col" class="rui-table__num">Screens</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Pricing pages</td><td>Ada Kestrel</td><td>Public</td><td><span class="rui-badge rui-badge--green"><span class="rui-badge__dot"></span>Live</span></td><td class="rui-table__num">861</td></tr>
+          <tr><td>Empty states</td><td>Marco Ruiz</td><td>Team</td><td><span class="rui-badge rui-badge--amber"><span class="rui-badge__dot"></span>In review</span></td><td class="rui-table__num">318</td></tr>
+          <tr><td>Mobile onboarding</td><td>Ada Kestrel</td><td>Private</td><td><span class="rui-badge">Draft</span></td><td class="rui-table__num">204</td></tr>
+          <tr><td>Settings patterns</td><td>June Adeyemi</td><td>Public</td><td><span class="rui-badge rui-badge--red"><span class="rui-badge__dot"></span>Import failed</span></td><td class="rui-table__num">0</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <pre class="rui-doc-code" id="rui-code-23" tabindex="0"><code>&lt;<span class="rui-doc-code__tag">div</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-table-wrap"</span>&gt;
+  &lt;<span class="rui-doc-code__tag">table</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-table"</span>&gt;
+    &lt;<span class="rui-doc-code__tag">caption</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-sr-only"</span>&gt;Collections in this workspace&lt;/<span class="rui-doc-code__tag">caption</span>&gt;
+    &lt;<span class="rui-doc-code__tag">thead</span>&gt;
+      &lt;<span class="rui-doc-code__tag">tr</span>&gt;&lt;<span class="rui-doc-code__tag">th</span> <span class="rui-doc-code__attr">scope</span>=<span class="rui-doc-code__val">"col"</span>&gt;Collection&lt;/<span class="rui-doc-code__tag">th</span>&gt;&lt;<span class="rui-doc-code__tag">th</span> <span class="rui-doc-code__attr">scope</span>=<span class="rui-doc-code__val">"col"</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-table__num"</span>&gt;Screens&lt;/<span class="rui-doc-code__tag">th</span>&gt;&lt;/<span class="rui-doc-code__tag">tr</span>&gt;
+    &lt;/<span class="rui-doc-code__tag">thead</span>&gt;
+    &lt;<span class="rui-doc-code__tag">tbody</span>&gt;
+      &lt;<span class="rui-doc-code__tag">tr</span>&gt;&lt;<span class="rui-doc-code__tag">td</span>&gt;Pricing pages&lt;/<span class="rui-doc-code__tag">td</span>&gt;&lt;<span class="rui-doc-code__tag">td</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-table__num"</span>&gt;861&lt;/<span class="rui-doc-code__tag">td</span>&gt;&lt;/<span class="rui-doc-code__tag">tr</span>&gt;
+    &lt;/<span class="rui-doc-code__tag">tbody</span>&gt;
+  &lt;/<span class="rui-doc-code__tag">table</span>&gt;
+&lt;/<span class="rui-doc-code__tag">div</span>&gt;</code></pre>
+  <div class="rui-doc-example__foot"><span></span><button class="rui-btn rui-btn--sm rui-btn--ghost" data-rui-copy="rui-code-23"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8.5" y="8.5" width="12" height="12" rx="2.2"/><path d="M15.5 5.5H6a2.5 2.5 0 0 0-2.5 2.5v9.5"/></svg> Copy</button></div>
+</div>
+</div>
+</section>
+
+<section class="rui-doc-section" id="empty" aria-labelledby="empty-h">
+  <div class="rui-doc-section__head">
+    <p class="rui-eyebrow">Containers</p>
+    <h2 class="rui-doc-section__title" id="empty-h">Empty state</h2>
+    <p class="rui-doc-section__lede">Sits on the subtle fill rather than the elevated one, so it reads as an absence of content rather than a card.</p>
+  </div>
+<div class="rui-doc-block">
+<h3 class="rui-doc-block__title">Empty state</h3>
+<div class="rui-doc-example">
+  <div class="rui-doc-demo rui-doc-demo--plain">
+    <div class="rui-empty" style="width:100%">
+      <span class="rui-empty__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 13.5h4l1.5 3h6l1.5-3h4"/><path d="M5.6 5.2 3.5 13.5v4a2 2 0 0 0 2 2h13a2 2 0 0 0 2-2v-4l-2.1-8.3a2 2 0 0 0-1.9-1.4H7.5a2 2 0 0 0-1.9 1.4Z"/></svg></span>
+      <p class="rui-empty__title">No references match those filters</p>
+      <p class="rui-empty__body">Try widening the colour tolerance, or clear the platform filter to search across web and mobile at once.</p>
+      <div class="rui-doc-row" style="justify-content:center">
+        <button class="rui-btn rui-btn--primary rui-btn--sm">Clear filters</button>
+        <button class="rui-btn rui-btn--ghost rui-btn--sm">Browse popular</button>
+      </div>
+    </div>
+  </div>
+  <pre class="rui-doc-code" id="rui-code-24" tabindex="0"><code>&lt;<span class="rui-doc-code__tag">div</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-empty"</span>&gt;
+  &lt;<span class="rui-doc-code__tag">span</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-empty__icon"</span>&gt;&lt;<span class="rui-doc-code__tag">svg</span>&gt;…&lt;/<span class="rui-doc-code__tag">svg</span>&gt;&lt;/<span class="rui-doc-code__tag">span</span>&gt;
+  &lt;<span class="rui-doc-code__tag">p</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-empty__title"</span>&gt;No references match those filters&lt;/<span class="rui-doc-code__tag">p</span>&gt;
+  &lt;<span class="rui-doc-code__tag">p</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-empty__body"</span>&gt;Try widening the colour tolerance…&lt;/<span class="rui-doc-code__tag">p</span>&gt;
+  &lt;<span class="rui-doc-code__tag">button</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-btn rui-btn--primary rui-btn--sm"</span>&gt;Clear filters&lt;/<span class="rui-doc-code__tag">button</span>&gt;
+&lt;/<span class="rui-doc-code__tag">div</span>&gt;</code></pre>
+  <div class="rui-doc-example__foot"><span></span><button class="rui-btn rui-btn--sm rui-btn--ghost" data-rui-copy="rui-code-24"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8.5" y="8.5" width="12" height="12" rx="2.2"/><path d="M15.5 5.5H6a2.5 2.5 0 0 0-2.5 2.5v9.5"/></svg> Copy</button></div>
+</div>
+</div>
+</section>
+
+<section class="rui-doc-section" id="modal" aria-labelledby="modal-h">
+  <div class="rui-doc-section__head">
+    <p class="rui-eyebrow">Overlays</p>
+    <h2 class="rui-doc-section__title" id="modal-h">Modal dialog</h2>
+    <p class="rui-doc-section__lede">Focus moves into the dialog on open and is trapped there, Escape or a backdrop click closes it, and focus returns to whatever opened it. Page scroll is locked while it is up.</p>
+  </div>
+<div class="rui-doc-block">
+<h3 class="rui-doc-block__title">Modal <span class="rui-doc-block__note">open it and press Tab, then Escape</span></h3>
+<div class="rui-doc-example">
+  <div class="rui-doc-demo ">
+    <button class="rui-btn rui-btn--secondary" data-rui-modal-open="demo-modal">Delete collection…</button>
+    <button class="rui-btn rui-btn--ghost" data-rui-modal-open="share-modal">Share…</button>
+
+    <div class="rui-overlay" id="demo-modal" data-rui-modal hidden>
+      <div class="rui-dialog" role="alertdialog" aria-labelledby="dm-t" aria-describedby="dm-d">
+        <div class="rui-dialog__header">
+          <h2 class="rui-dialog__title" id="dm-t">Delete “Empty states”?</h2>
+          <button class="rui-btn rui-btn--ghost rui-btn--sm rui-btn--icon" data-rui-modal-close aria-label="Close dialog"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg></button>
+        </div>
+        <p class="rui-dialog__body" id="dm-d">This removes the collection and its 318 saved references from your workspace. The original captures stay in the library.</p>
+        <div class="rui-dialog__footer">
+          <button class="rui-btn rui-btn--ghost" data-rui-modal-close>Cancel</button>
+          <button class="rui-btn rui-btn--danger" data-rui-modal-close data-rui-toast="error" data-toast-title="Collection deleted" data-toast-desc="“Empty states” and 318 references were removed.">Delete collection</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="rui-overlay" id="share-modal" data-rui-modal hidden>
+      <div class="rui-dialog" role="dialog" aria-labelledby="sm-t">
+        <div class="rui-dialog__header">
+          <h2 class="rui-dialog__title" id="sm-t">Share collection</h2>
+          <button class="rui-btn rui-btn--ghost rui-btn--sm rui-btn--icon" data-rui-modal-close aria-label="Close dialog"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg></button>
+        </div>
+        <div class="rui-field" style="margin-top:8px">
+          <label class="rui-field__label" for="sm-link">Public link</label>
+          <input class="rui-input" id="sm-link" type="text" value="refero.example/c/empty-states" data-rui-autofocus readonly>
+          <span class="rui-field__desc">Anyone with this link can view the collection.</span>
+        </div>
+        <div class="rui-field" style="margin-top:16px">
+          <span class="rui-field__label" id="sm-perm">Permission</span>
+          <div class="rui-segmented" data-rui-segmented aria-labelledby="sm-perm" style="align-self:flex-start">
+            <button class="rui-segmented__item" aria-checked="true">Can view</button>
+            <button class="rui-segmented__item" aria-checked="false">Can edit</button>
+          </div>
+        </div>
+        <div class="rui-dialog__footer">
+          <button class="rui-btn rui-btn--ghost" data-rui-modal-close>Close</button>
+          <button class="rui-btn rui-btn--primary" data-rui-modal-close data-rui-toast="success" data-toast-title="Link copied" data-toast-desc="Anyone with the link can now view this collection.">Copy link</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <pre class="rui-doc-code" id="rui-code-25" tabindex="0"><code>&lt;<span class="rui-doc-code__tag">button</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-btn rui-btn--secondary"</span> <span class="rui-doc-code__attr">data-rui-modal-open</span>=<span class="rui-doc-code__val">"demo-modal"</span>&gt;Delete collection…&lt;/<span class="rui-doc-code__tag">button</span>&gt;
+
+&lt;<span class="rui-doc-code__tag">div</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-overlay"</span> <span class="rui-doc-code__attr">id</span>=<span class="rui-doc-code__val">"demo-modal"</span> data-rui-modal hidden&gt;
+  &lt;<span class="rui-doc-code__tag">div</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-dialog"</span> <span class="rui-doc-code__attr">role</span>=<span class="rui-doc-code__val">"alertdialog"</span> <span class="rui-doc-code__attr">aria-labelledby</span>=<span class="rui-doc-code__val">"dm-t"</span> <span class="rui-doc-code__attr">aria-describedby</span>=<span class="rui-doc-code__val">"dm-d"</span>&gt;
+    &lt;<span class="rui-doc-code__tag">div</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-dialog__header"</span>&gt;
+      &lt;<span class="rui-doc-code__tag">h2</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-dialog__title"</span> <span class="rui-doc-code__attr">id</span>=<span class="rui-doc-code__val">"dm-t"</span>&gt;Delete “Empty states”?&lt;/<span class="rui-doc-code__tag">h2</span>&gt;
+      &lt;<span class="rui-doc-code__tag">button</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-btn rui-btn--ghost rui-btn--sm rui-btn--icon"</span>
+              data-rui-modal-close <span class="rui-doc-code__attr">aria-label</span>=<span class="rui-doc-code__val">"Close dialog"</span>&gt;&lt;<span class="rui-doc-code__tag">svg</span>&gt;…&lt;/<span class="rui-doc-code__tag">svg</span>&gt;&lt;/<span class="rui-doc-code__tag">button</span>&gt;
+    &lt;/<span class="rui-doc-code__tag">div</span>&gt;
+    &lt;<span class="rui-doc-code__tag">p</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-dialog__body"</span> <span class="rui-doc-code__attr">id</span>=<span class="rui-doc-code__val">"dm-d"</span>&gt;This removes the collection and its 318 saved references…&lt;/<span class="rui-doc-code__tag">p</span>&gt;
+    &lt;<span class="rui-doc-code__tag">div</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-dialog__footer"</span>&gt;
+      &lt;<span class="rui-doc-code__tag">button</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-btn rui-btn--ghost"</span> data-rui-modal-close&gt;Cancel&lt;/<span class="rui-doc-code__tag">button</span>&gt;
+      &lt;<span class="rui-doc-code__tag">button</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-btn rui-btn--danger"</span> data-rui-modal-close&gt;Delete collection&lt;/<span class="rui-doc-code__tag">button</span>&gt;
+    &lt;/<span class="rui-doc-code__tag">div</span>&gt;
+  &lt;/<span class="rui-doc-code__tag">div</span>&gt;
+&lt;/<span class="rui-doc-code__tag">div</span>&gt;</code></pre>
+  <div class="rui-doc-example__foot"><span></span><button class="rui-btn rui-btn--sm rui-btn--ghost" data-rui-copy="rui-code-25"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8.5" y="8.5" width="12" height="12" rx="2.2"/><path d="M15.5 5.5H6a2.5 2.5 0 0 0-2.5 2.5v9.5"/></svg> Copy</button></div>
+</div>
+</div>
+</section>
+
+<section class="rui-doc-section" id="popover" aria-labelledby="popover-h">
+  <div class="rui-doc-section__head">
+    <p class="rui-eyebrow">Overlays</p>
+    <h2 class="rui-doc-section__title" id="popover-h">Popover &amp; tooltip</h2>
+    <p class="rui-doc-section__lede">A popover holds interactive content and is dismissed with Escape or an outside click. A tooltip is a single non-interactive label, shown on hover and on focus, announced through <code>aria-describedby</code>.</p>
+  </div>
+<div class="rui-doc-block">
+<h3 class="rui-doc-block__title">Popover</h3>
+<div class="rui-doc-example">
+  <div class="rui-doc-demo ">
+    <div class="rui-popover" data-rui-popover>
+      <button class="rui-btn rui-btn--secondary" data-rui-popover-trigger><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></svg>How ranking works</button>
+      <div class="rui-popover__panel" data-rui-popover-panel>
+        <p class="rui-popover__title">Popularity score</p>
+        Saves in the last thirty days, weighted by how recently they happened. A screen saved by fifty people last week outranks one saved by two hundred a year ago.
+      </div>
+    </div>
+    <div class="rui-popover" data-rui-popover>
+      <button class="rui-btn rui-btn--ghost rui-btn--icon" data-rui-popover-trigger aria-label="Filter help"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 6h17M6.5 12h11M10 18h4"/></svg></button>
+      <div class="rui-popover__panel" data-rui-popover-panel>
+        Filters combine with AND. Selecting two platforms shows only screens tagged with both.
+      </div>
+    </div>
+  </div>
+  <pre class="rui-doc-code" id="rui-code-26" tabindex="0"><code>&lt;<span class="rui-doc-code__tag">div</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-popover"</span> data-rui-popover&gt;
+  &lt;<span class="rui-doc-code__tag">button</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-btn rui-btn--secondary"</span> data-rui-popover-trigger&gt;How ranking works&lt;/<span class="rui-doc-code__tag">button</span>&gt;
+  &lt;<span class="rui-doc-code__tag">div</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-popover__panel"</span> data-rui-popover-panel&gt;
+    &lt;<span class="rui-doc-code__tag">p</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-popover__title"</span>&gt;Popularity score&lt;/<span class="rui-doc-code__tag">p</span>&gt;
+    Saves in the last thirty days, weighted by how recently they happened.
+  &lt;/<span class="rui-doc-code__tag">div</span>&gt;
+&lt;/<span class="rui-doc-code__tag">div</span>&gt;</code></pre>
+  <div class="rui-doc-example__foot"><span></span><button class="rui-btn rui-btn--sm rui-btn--ghost" data-rui-copy="rui-code-26"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8.5" y="8.5" width="12" height="12" rx="2.2"/><path d="M15.5 5.5H6a2.5 2.5 0 0 0-2.5 2.5v9.5"/></svg> Copy</button></div>
+</div>
+</div>
+<div class="rui-doc-block">
+<h3 class="rui-doc-block__title">Tooltip <span class="rui-doc-block__note">hover or Tab to a button</span></h3>
+<div class="rui-doc-example">
+  <div class="rui-doc-demo ">
+    <button class="rui-btn rui-btn--secondary rui-btn--icon" data-rui-tooltip="Save to collection" aria-label="Save to collection"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.5 4h11v16.2l-5.5-3.7-5.5 3.7V4Z"/></svg></button>
+    <button class="rui-btn rui-btn--secondary rui-btn--icon" data-rui-tooltip="Download the original PNG" aria-label="Download"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v10.5M7.5 10.5 12 15l4.5-4.5"/><path d="M4.5 19.5h15"/></svg></button>
+    <button class="rui-btn rui-btn--secondary rui-btn--icon" data-rui-tooltip="Open the live site in a new tab" aria-label="Open live site"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4.5h5.5V10"/><path d="M19.5 4.5 11 13"/><path d="M18 14.5v4.2a1.8 1.8 0 0 1-1.8 1.8H5.3a1.8 1.8 0 0 1-1.8-1.8V7.8A1.8 1.8 0 0 1 5.3 6h4.2"/></svg></button>
+  </div>
+  <pre class="rui-doc-code" id="rui-code-27" tabindex="0"><code>&lt;<span class="rui-doc-code__tag">button</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-btn rui-btn--secondary rui-btn--icon"</span>
+        <span class="rui-doc-code__attr">data-rui-tooltip</span>=<span class="rui-doc-code__val">"Save to collection"</span> <span class="rui-doc-code__attr">aria-label</span>=<span class="rui-doc-code__val">"Save to collection"</span>&gt;&lt;<span class="rui-doc-code__tag">svg</span>&gt;…&lt;/<span class="rui-doc-code__tag">svg</span>&gt;&lt;/<span class="rui-doc-code__tag">button</span>&gt;</code></pre>
+  <div class="rui-doc-example__foot"><span></span><button class="rui-btn rui-btn--sm rui-btn--ghost" data-rui-copy="rui-code-27"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8.5" y="8.5" width="12" height="12" rx="2.2"/><path d="M15.5 5.5H6a2.5 2.5 0 0 0-2.5 2.5v9.5"/></svg> Copy</button></div>
+</div>
+</div>
+</section>
+
+<section class="rui-doc-section" id="toast" aria-labelledby="toast-h">
+  <div class="rui-doc-section__head">
+    <p class="rui-eyebrow">Overlays</p>
+    <h2 class="rui-doc-section__title" id="toast-h">Toast</h2>
+    <p class="rui-doc-section__lede">Toasts stack in a polite live region at the bottom right, so screen readers announce them without interrupting. They pause on hover and can be dismissed early.</p>
+  </div>
+<div class="rui-doc-block">
+<h3 class="rui-doc-block__title">Toast</h3>
+<div class="rui-doc-example">
+  <div class="rui-doc-demo ">
+    <button class="rui-btn rui-btn--secondary" data-rui-toast="success" data-toast-title="Saved to “Pricing pages”" data-toast-desc="861 references in this collection.">Success</button>
+    <button class="rui-btn rui-btn--secondary" data-rui-toast="error" data-toast-title="Import failed" data-toast-desc="The source returned 403. Check the URL and try again.">Error</button>
+    <button class="rui-btn rui-btn--secondary" data-rui-toast="warning" data-toast-title="Capture is stale" data-toast-desc="This screen was captured 14 months ago.">Warning</button>
+    <button class="rui-btn rui-btn--secondary" data-rui-toast="info" data-toast-title="Sync started" data-toast-desc="We will notify you when it finishes.">Info</button>
+  </div>
+  <pre class="rui-doc-code" id="rui-code-28" tabindex="0"><code>&lt;<span class="rui-doc-code__tag">button</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-btn rui-btn--secondary"</span> <span class="rui-doc-code__attr">data-rui-toast</span>=<span class="rui-doc-code__val">"success"</span> <span class="rui-doc-code__attr">data-toast-title</span>=<span class="rui-doc-code__val">"Saved to “Pricing pages”"</span> <span class="rui-doc-code__attr">data-toast-desc</span>=<span class="rui-doc-code__val">"861 references in this collection."</span>&gt;Success&lt;/<span class="rui-doc-code__tag">button</span>&gt;
+&lt;<span class="rui-doc-code__tag">button</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-btn rui-btn--secondary"</span> <span class="rui-doc-code__attr">data-rui-toast</span>=<span class="rui-doc-code__val">"error"</span> <span class="rui-doc-code__attr">data-toast-title</span>=<span class="rui-doc-code__val">"Import failed"</span> <span class="rui-doc-code__attr">data-toast-desc</span>=<span class="rui-doc-code__val">"The source returned 403. Check the URL and try again."</span>&gt;Error&lt;/<span class="rui-doc-code__tag">button</span>&gt;
+&lt;<span class="rui-doc-code__tag">button</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-btn rui-btn--secondary"</span> <span class="rui-doc-code__attr">data-rui-toast</span>=<span class="rui-doc-code__val">"warning"</span> <span class="rui-doc-code__attr">data-toast-title</span>=<span class="rui-doc-code__val">"Capture is stale"</span> <span class="rui-doc-code__attr">data-toast-desc</span>=<span class="rui-doc-code__val">"This screen was captured 14 months ago."</span>&gt;Warning&lt;/<span class="rui-doc-code__tag">button</span>&gt;
+&lt;<span class="rui-doc-code__tag">button</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-btn rui-btn--secondary"</span> <span class="rui-doc-code__attr">data-rui-toast</span>=<span class="rui-doc-code__val">"info"</span> <span class="rui-doc-code__attr">data-toast-title</span>=<span class="rui-doc-code__val">"Sync started"</span> <span class="rui-doc-code__attr">data-toast-desc</span>=<span class="rui-doc-code__val">"We will notify you when it finishes."</span>&gt;Info&lt;/<span class="rui-doc-code__tag">button</span>&gt;</code></pre>
+  <div class="rui-doc-example__foot"><span>Or call it from your own code: ReferoUI.toast({ variant: &#x27;success&#x27;, title: &#x27;…&#x27; })</span><button class="rui-btn rui-btn--sm rui-btn--ghost" data-rui-copy="rui-code-28"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8.5" y="8.5" width="12" height="12" rx="2.2"/><path d="M15.5 5.5H6a2.5 2.5 0 0 0-2.5 2.5v9.5"/></svg> Copy</button></div>
+</div>
+</div>
+</section>
+
+<section class="rui-doc-section" id="palette" aria-labelledby="palette-h">
+  <div class="rui-doc-section__head">
+    <p class="rui-eyebrow">Overlays</p>
+    <h2 class="rui-doc-section__title" id="palette-h">Command palette</h2>
+    <p class="rui-doc-section__lede">Press <kbd class="rui-kbd">⌘</kbd><kbd class="rui-kbd">K</kbd> anywhere on this page &mdash; or <kbd class="rui-kbd">Ctrl</kbd><kbd class="rui-kbd">K</kbd>. Typing filters the list and hides empty groups, arrows move the highlight, Enter runs the command, Escape closes and restores focus.</p>
+  </div>
+<div class="rui-doc-block">
+<h3 class="rui-doc-block__title">Command palette</h3>
+<div class="rui-doc-example">
+  <div class="rui-doc-demo ">
+    <button class="rui-btn rui-btn--secondary" data-rui-palette-open><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/></svg>Search commands<kbd class="rui-kbd">⌘</kbd><kbd class="rui-kbd">K</kbd></button>
+  </div>
+  <pre class="rui-doc-code" id="rui-code-29" tabindex="0"><code>&lt;<span class="rui-doc-code__tag">button</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-btn rui-btn--secondary"</span> data-rui-palette-open&gt;Search commands&lt;/<span class="rui-doc-code__tag">button</span>&gt;
+
+&lt;<span class="rui-doc-code__tag">div</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-palette-overlay"</span> <span class="rui-doc-code__attr">id</span>=<span class="rui-doc-code__val">"cmdk"</span> data-rui-palette hidden&gt;
+  &lt;<span class="rui-doc-code__tag">div</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-palette"</span> <span class="rui-doc-code__attr">role</span>=<span class="rui-doc-code__val">"dialog"</span> <span class="rui-doc-code__attr">aria-modal</span>=<span class="rui-doc-code__val">"true"</span> <span class="rui-doc-code__attr">aria-label</span>=<span class="rui-doc-code__val">"Command palette"</span>&gt;
+    &lt;<span class="rui-doc-code__tag">div</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-palette__search"</span>&gt;
+      &lt;<span class="rui-doc-code__tag">svg</span>&gt;…&lt;/<span class="rui-doc-code__tag">svg</span>&gt;
+      &lt;<span class="rui-doc-code__tag">input</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-palette__input"</span> data-rui-palette-input <span class="rui-doc-code__attr">placeholder</span>=<span class="rui-doc-code__val">"Type a command…"</span>&gt;
+    &lt;/<span class="rui-doc-code__tag">div</span>&gt;
+    &lt;<span class="rui-doc-code__tag">ul</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-palette__list"</span> <span class="rui-doc-code__attr">role</span>=<span class="rui-doc-code__val">"listbox"</span> <span class="rui-doc-code__attr">aria-label</span>=<span class="rui-doc-code__val">"Commands"</span>&gt;
+      &lt;<span class="rui-doc-code__tag">li</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-palette__group"</span> data-rui-palette-group&gt;Navigate&lt;/<span class="rui-doc-code__tag">li</span>&gt;
+      &lt;<span class="rui-doc-code__tag">li</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-palette__item"</span> <span class="rui-doc-code__attr">role</span>=<span class="rui-doc-code__val">"option"</span> <span class="rui-doc-code__attr">data-keywords</span>=<span class="rui-doc-code__val">"library browse"</span>&gt;Go to library&lt;/<span class="rui-doc-code__tag">li</span>&gt;
+    &lt;/<span class="rui-doc-code__tag">ul</span>&gt;
+  &lt;/<span class="rui-doc-code__tag">div</span>&gt;
+&lt;/<span class="rui-doc-code__tag">div</span>&gt;</code></pre>
+  <div class="rui-doc-example__foot"><span>One palette instance lives at the end of the document and is shared by every trigger.</span><button class="rui-btn rui-btn--sm rui-btn--ghost" data-rui-copy="rui-code-29"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8.5" y="8.5" width="12" height="12" rx="2.2"/><path d="M15.5 5.5H6a2.5 2.5 0 0 0-2.5 2.5v9.5"/></svg> Copy</button></div>
+</div>
+</div>
+</section>
+
+<section class="rui-doc-section" id="avatars" aria-labelledby="avatars-h">
+  <div class="rui-doc-section__head">
+    <p class="rui-eyebrow">Feedback</p>
+    <h2 class="rui-doc-section__title" id="avatars-h">Avatar</h2>
+    <p class="rui-doc-section__lede">Initials by default, an image when you have one, and a status dot that punches a ring out of whatever it sits on. Groups overlap by nine pixels and lift on hover.</p>
+  </div>
+<div class="rui-doc-block">
+<h3 class="rui-doc-block__title">Avatar</h3>
+<div class="rui-doc-example">
+  <div class="rui-doc-demo ">
+    <span class="rui-avatar rui-avatar--sm">AK</span>
+    <span class="rui-avatar">MR</span>
+    <span class="rui-avatar rui-avatar--lg">JA<span class="rui-avatar__status"></span></span>
+    <span class="rui-avatar rui-avatar--square">TL</span>
+    <span class="rui-avatar-group">
+      <span class="rui-avatar">AK</span>
+      <span class="rui-avatar">MR</span>
+      <span class="rui-avatar">JA</span>
+      <span class="rui-avatar rui-avatar-group__more">+12</span>
+    </span>
+  </div>
+  <pre class="rui-doc-code" id="rui-code-30" tabindex="0"><code>&lt;<span class="rui-doc-code__tag">span</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-avatar rui-avatar--sm"</span>&gt;AK&lt;/<span class="rui-doc-code__tag">span</span>&gt;
+&lt;<span class="rui-doc-code__tag">span</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-avatar"</span>&gt;MR&lt;/<span class="rui-doc-code__tag">span</span>&gt;
+&lt;<span class="rui-doc-code__tag">span</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-avatar rui-avatar--lg"</span>&gt;JA&lt;<span class="rui-doc-code__tag">span</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-avatar__status"</span>&gt;&lt;/<span class="rui-doc-code__tag">span</span>&gt;&lt;/<span class="rui-doc-code__tag">span</span>&gt;
+&lt;<span class="rui-doc-code__tag">span</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-avatar rui-avatar--square"</span>&gt;TL&lt;/<span class="rui-doc-code__tag">span</span>&gt;
+&lt;<span class="rui-doc-code__tag">span</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-avatar-group"</span>&gt;
+  &lt;<span class="rui-doc-code__tag">span</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-avatar"</span>&gt;AK&lt;/<span class="rui-doc-code__tag">span</span>&gt;
+  &lt;<span class="rui-doc-code__tag">span</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-avatar"</span>&gt;MR&lt;/<span class="rui-doc-code__tag">span</span>&gt;
+  &lt;<span class="rui-doc-code__tag">span</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-avatar"</span>&gt;JA&lt;/<span class="rui-doc-code__tag">span</span>&gt;
+  &lt;<span class="rui-doc-code__tag">span</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-avatar rui-avatar-group__more"</span>&gt;+12&lt;/<span class="rui-doc-code__tag">span</span>&gt;
+&lt;/<span class="rui-doc-code__tag">span</span>&gt;</code></pre>
+  <div class="rui-doc-example__foot"><span></span><button class="rui-btn rui-btn--sm rui-btn--ghost" data-rui-copy="rui-code-30"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8.5" y="8.5" width="12" height="12" rx="2.2"/><path d="M15.5 5.5H6a2.5 2.5 0 0 0-2.5 2.5v9.5"/></svg> Copy</button></div>
+</div>
+</div>
+</section>
+
+<section class="rui-doc-section" id="loading" aria-labelledby="loading-h">
+  <div class="rui-doc-section__head">
+    <p class="rui-eyebrow">Feedback</p>
+    <h2 class="rui-doc-section__title" id="loading-h">Skeleton, progress &amp; spinner</h2>
+    <p class="rui-doc-section__lede">Three ways to say “not yet”. Skeletons hold the shape of content that is about to arrive, the progress bar reports a known quantity, and the spinner covers the unknown. All three respect reduced-motion.</p>
+  </div>
+<div class="rui-doc-block">
+<h3 class="rui-doc-block__title">Skeleton</h3>
+<div class="rui-doc-example">
+  <div class="rui-doc-demo ">
+    <div class="rui-card" style="width:100%;max-width:340px">
+      <div style="display:flex;gap:12px;align-items:center">
+        <span class="rui-skeleton rui-skeleton--circle"></span>
+        <span style="flex:1">
+          <span class="rui-skeleton rui-skeleton--title" style="width:60%"></span>
+          <span class="rui-skeleton rui-skeleton--text" style="width:40%"></span>
+        </span>
+      </div>
+      <span class="rui-skeleton rui-skeleton--block" style="margin-top:16px"></span>
+      <span class="rui-skeleton rui-skeleton--text" style="width:90%;margin-top:14px"></span>
+      <span class="rui-skeleton rui-skeleton--text" style="width:70%"></span>
+    </div>
+  </div>
+  <pre class="rui-doc-code" id="rui-code-31" tabindex="0"><code>&lt;<span class="rui-doc-code__tag">span</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-skeleton rui-skeleton--circle"</span>&gt;&lt;/<span class="rui-doc-code__tag">span</span>&gt;
+&lt;<span class="rui-doc-code__tag">span</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-skeleton rui-skeleton--title"</span> <span class="rui-doc-code__attr">style</span>=<span class="rui-doc-code__val">"width:60%"</span>&gt;&lt;/<span class="rui-doc-code__tag">span</span>&gt;
+&lt;<span class="rui-doc-code__tag">span</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-skeleton rui-skeleton--text"</span> <span class="rui-doc-code__attr">style</span>=<span class="rui-doc-code__val">"width:40%"</span>&gt;&lt;/<span class="rui-doc-code__tag">span</span>&gt;
+&lt;<span class="rui-doc-code__tag">span</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-skeleton rui-skeleton--block"</span>&gt;&lt;/<span class="rui-doc-code__tag">span</span>&gt;</code></pre>
+  <div class="rui-doc-example__foot"><span></span><button class="rui-btn rui-btn--sm rui-btn--ghost" data-rui-copy="rui-code-31"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8.5" y="8.5" width="12" height="12" rx="2.2"/><path d="M15.5 5.5H6a2.5 2.5 0 0 0-2.5 2.5v9.5"/></svg> Copy</button></div>
+</div>
+</div>
+<div class="rui-doc-block">
+<h3 class="rui-doc-block__title">Progress and spinner <span class="rui-doc-block__note">step the bar</span></h3>
+<div class="rui-doc-example">
+  <div class="rui-doc-demo rui-doc-demo--plain">
+    <div style="width:100%;max-width:420px;display:flex;flex-direction:column;gap:18px" data-rui-progress-demo data-value="24">
+      <div>
+        <div class="rui-doc-row" style="justify-content:space-between;margin-bottom:8px">
+          <span class="rui-label rui-muted">Importing captures</span>
+          <button class="rui-btn rui-btn--sm rui-btn--secondary" data-rui-progress-step>Advance</button>
+        </div>
+        <div class="rui-progress" role="progressbar" aria-label="Importing captures" aria-valuemin="0" aria-valuemax="100" aria-valuenow="24">
+          <div class="rui-progress__bar"></div>
+        </div>
+      </div>
+      <div class="rui-progress rui-progress--indeterminate" role="progressbar" aria-label="Reticulating palettes">
+        <div class="rui-progress__bar"></div>
+      </div>
+      <div class="rui-doc-row">
+        <span class="rui-spinner rui-spinner--sm" role="status" aria-label="Loading"></span>
+        <span class="rui-spinner" role="status" aria-label="Loading"></span>
+        <span class="rui-spinner rui-spinner--lg" role="status" aria-label="Loading"></span>
+      </div>
+    </div>
+  </div>
+  <pre class="rui-doc-code" id="rui-code-32" tabindex="0"><code>&lt;<span class="rui-doc-code__tag">div</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-progress"</span> <span class="rui-doc-code__attr">role</span>=<span class="rui-doc-code__val">"progressbar"</span> <span class="rui-doc-code__attr">aria-label</span>=<span class="rui-doc-code__val">"Importing captures"</span>
+     <span class="rui-doc-code__attr">aria-valuemin</span>=<span class="rui-doc-code__val">"0"</span> <span class="rui-doc-code__attr">aria-valuemax</span>=<span class="rui-doc-code__val">"100"</span> <span class="rui-doc-code__attr">aria-valuenow</span>=<span class="rui-doc-code__val">"24"</span>&gt;
+  &lt;<span class="rui-doc-code__tag">div</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-progress__bar"</span> <span class="rui-doc-code__attr">style</span>=<span class="rui-doc-code__val">"width:24%"</span>&gt;&lt;/<span class="rui-doc-code__tag">div</span>&gt;
+&lt;/<span class="rui-doc-code__tag">div</span>&gt;
+
+&lt;<span class="rui-doc-code__tag">div</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-progress rui-progress--indeterminate"</span> <span class="rui-doc-code__attr">role</span>=<span class="rui-doc-code__val">"progressbar"</span> <span class="rui-doc-code__attr">aria-label</span>=<span class="rui-doc-code__val">"Working"</span>&gt;
+  &lt;<span class="rui-doc-code__tag">div</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-progress__bar"</span>&gt;&lt;/<span class="rui-doc-code__tag">div</span>&gt;
+&lt;/<span class="rui-doc-code__tag">div</span>&gt;
+
+&lt;<span class="rui-doc-code__tag">span</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-spinner"</span> <span class="rui-doc-code__attr">role</span>=<span class="rui-doc-code__val">"status"</span> <span class="rui-doc-code__attr">aria-label</span>=<span class="rui-doc-code__val">"Loading"</span>&gt;&lt;/<span class="rui-doc-code__tag">span</span>&gt;</code></pre>
+  <div class="rui-doc-example__foot"><span></span><button class="rui-btn rui-btn--sm rui-btn--ghost" data-rui-copy="rui-code-32"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8.5" y="8.5" width="12" height="12" rx="2.2"/><path d="M15.5 5.5H6a2.5 2.5 0 0 0-2.5 2.5v9.5"/></svg> Copy</button></div>
+</div>
+</div>
+</section>
+
+<section class="rui-doc-section" id="alerts" aria-labelledby="alerts-h">
+  <div class="rui-doc-section__head">
+    <p class="rui-eyebrow">Feedback</p>
+    <h2 class="rui-doc-section__title" id="alerts-h">Alert banner</h2>
+    <p class="rui-doc-section__lede">Inline, persistent, and tied to the surrounding content &mdash; where a toast is transient and global. The neutral variant is the default; the three status variants tint their fill from the status alphas.</p>
+  </div>
+<div class="rui-doc-block">
+<h3 class="rui-doc-block__title">Alert</h3>
+<div class="rui-doc-example">
+  <div class="rui-doc-demo rui-doc-demo--plain">
+    <div style="display:flex;flex-direction:column;gap:12px;width:100%">
+      <div class="rui-alert">
+        <span class="rui-alert__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></svg></span>
+        <div class="rui-alert__text"><p class="rui-alert__title">Captures refresh weekly</p><p class="rui-alert__body">Screens are re-captured every Monday. Anything that changed appears as a new dated entry.</p></div>
+      </div>
+      <div class="rui-alert rui-alert--success" role="status">
+        <span class="rui-alert__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8.5 12.2 2.4 2.4 4.6-5"/></svg></span>
+        <div class="rui-alert__text"><p class="rui-alert__title">Import finished</p><p class="rui-alert__body">184 screens were added to “Onboarding flows”.</p></div>
+      </div>
+      <div class="rui-alert rui-alert--warning">
+        <span class="rui-alert__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4.5 3 19h18L12 4.5Z"/><path d="M12 10v4M12 17h.01"/></svg></span>
+        <div class="rui-alert__text"><p class="rui-alert__title">Approaching your plan limit</p><p class="rui-alert__body">You have used 940 of 1,000 saved references this month.</p></div>
+      </div>
+      <div class="rui-alert rui-alert--error" role="alert">
+        <span class="rui-alert__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7.5v5M12 16h.01"/></svg></span>
+        <div class="rui-alert__text"><p class="rui-alert__title">We could not reach that site</p><p class="rui-alert__body">The server returned 403. Sites behind a login cannot be captured automatically.</p></div>
+      </div>
+    </div>
+  </div>
+  <pre class="rui-doc-code" id="rui-code-33" tabindex="0"><code>&lt;<span class="rui-doc-code__tag">div</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-alert rui-alert--warning"</span>&gt;
+  &lt;<span class="rui-doc-code__tag">span</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-alert__icon"</span>&gt;&lt;<span class="rui-doc-code__tag">svg</span>&gt;…&lt;/<span class="rui-doc-code__tag">svg</span>&gt;&lt;/<span class="rui-doc-code__tag">span</span>&gt;
+  &lt;<span class="rui-doc-code__tag">div</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-alert__text"</span>&gt;
+    &lt;<span class="rui-doc-code__tag">p</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-alert__title"</span>&gt;Approaching your plan limit&lt;/<span class="rui-doc-code__tag">p</span>&gt;
+    &lt;<span class="rui-doc-code__tag">p</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-alert__body"</span>&gt;You have used 940 of 1,000 saved references this month.&lt;/<span class="rui-doc-code__tag">p</span>&gt;
+  &lt;/<span class="rui-doc-code__tag">div</span>&gt;
+&lt;/<span class="rui-doc-code__tag">div</span>&gt;</code></pre>
+  <div class="rui-doc-example__foot"><span></span><button class="rui-btn rui-btn--sm rui-btn--ghost" data-rui-copy="rui-code-33"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8.5" y="8.5" width="12" height="12" rx="2.2"/><path d="M15.5 5.5H6a2.5 2.5 0 0 0-2.5 2.5v9.5"/></svg> Copy</button></div>
+</div>
+</div>
+</section>
+
+<section class="rui-doc-section" id="navigation" aria-labelledby="navigation-h">
+  <div class="rui-doc-section__head">
+    <p class="rui-eyebrow">Feedback</p>
+    <h2 class="rui-doc-section__title" id="navigation-h">Breadcrumb, pagination, divider &amp; theme toggle</h2>
+    <p class="rui-doc-section__lede">The small connective pieces. The theme toggle is a radiogroup of three &mdash; light, dark and system &mdash; and writing to it updates the <code>data-theme</code> attribute on the document root.</p>
+  </div>
+<div class="rui-doc-block">
+<h3 class="rui-doc-block__title">Breadcrumb</h3>
+<div class="rui-doc-example">
+  <div class="rui-doc-demo rui-doc-demo--plain">
+    <nav class="rui-breadcrumb" aria-label="Breadcrumb">
+      <a class="rui-breadcrumb__link" href="#navigation">Library</a>
+      <span class="rui-breadcrumb__sep" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9.5 6 6 6-6 6"/></svg></span>
+      <a class="rui-breadcrumb__link" href="#navigation">Web</a>
+      <span class="rui-breadcrumb__sep" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9.5 6 6 6-6 6"/></svg></span>
+      <a class="rui-breadcrumb__link" href="#navigation">Pricing pages</a>
+      <span class="rui-breadcrumb__sep" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9.5 6 6 6-6 6"/></svg></span>
+      <span class="rui-breadcrumb__current" aria-current="page">Halcyon</span>
+    </nav>
+  </div>
+  <pre class="rui-doc-code" id="rui-code-34" tabindex="0"><code>&lt;<span class="rui-doc-code__tag">nav</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-breadcrumb"</span> <span class="rui-doc-code__attr">aria-label</span>=<span class="rui-doc-code__val">"Breadcrumb"</span>&gt;
+  &lt;<span class="rui-doc-code__tag">a</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-breadcrumb__link"</span> <span class="rui-doc-code__attr">href</span>=<span class="rui-doc-code__val">"/library"</span>&gt;Library&lt;/<span class="rui-doc-code__tag">a</span>&gt;
+  &lt;<span class="rui-doc-code__tag">span</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-breadcrumb__sep"</span> <span class="rui-doc-code__attr">aria-hidden</span>=<span class="rui-doc-code__val">"true"</span>&gt;&lt;<span class="rui-doc-code__tag">svg</span>&gt;…&lt;/<span class="rui-doc-code__tag">svg</span>&gt;&lt;/<span class="rui-doc-code__tag">span</span>&gt;
+  &lt;<span class="rui-doc-code__tag">span</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-breadcrumb__current"</span> <span class="rui-doc-code__attr">aria-current</span>=<span class="rui-doc-code__val">"page"</span>&gt;Halcyon&lt;/<span class="rui-doc-code__tag">span</span>&gt;
+&lt;/<span class="rui-doc-code__tag">nav</span>&gt;</code></pre>
+  <div class="rui-doc-example__foot"><span></span><button class="rui-btn rui-btn--sm rui-btn--ghost" data-rui-copy="rui-code-34"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8.5" y="8.5" width="12" height="12" rx="2.2"/><path d="M15.5 5.5H6a2.5 2.5 0 0 0-2.5 2.5v9.5"/></svg> Copy</button></div>
+</div>
+</div>
+<div class="rui-doc-block">
+<h3 class="rui-doc-block__title">Pagination</h3>
+<div class="rui-doc-example">
+  <div class="rui-doc-demo rui-doc-demo--plain">
+    <nav class="rui-pagination" data-rui-pagination aria-label="Reference pages">
+      <button class="rui-pagination__item" aria-label="Previous page" disabled><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m14.5 6-6 6 6 6"/></svg></button>
+      <button class="rui-pagination__item" data-page="1" aria-current="page" aria-label="Page 1">1</button>
+      <button class="rui-pagination__item" data-page="2" aria-label="Page 2">2</button>
+      <button class="rui-pagination__item" data-page="3" aria-label="Page 3">3</button>
+      <span class="rui-pagination__gap" aria-hidden="true">…</span>
+      <button class="rui-pagination__item" data-page="24" aria-label="Page 24">24</button>
+      <button class="rui-pagination__item" aria-label="Next page"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9.5 6 6 6-6 6"/></svg></button>
+    </nav>
+  </div>
+  <pre class="rui-doc-code" id="rui-code-35" tabindex="0"><code>&lt;<span class="rui-doc-code__tag">nav</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-pagination"</span> data-rui-pagination <span class="rui-doc-code__attr">aria-label</span>=<span class="rui-doc-code__val">"Reference pages"</span>&gt;
+  &lt;<span class="rui-doc-code__tag">button</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-pagination__item"</span> <span class="rui-doc-code__attr">aria-label</span>=<span class="rui-doc-code__val">"Previous page"</span> disabled&gt;&lt;<span class="rui-doc-code__tag">svg</span>&gt;…&lt;/<span class="rui-doc-code__tag">svg</span>&gt;&lt;/<span class="rui-doc-code__tag">button</span>&gt;
+  &lt;<span class="rui-doc-code__tag">button</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-pagination__item"</span> <span class="rui-doc-code__attr">data-page</span>=<span class="rui-doc-code__val">"1"</span> <span class="rui-doc-code__attr">aria-current</span>=<span class="rui-doc-code__val">"page"</span> <span class="rui-doc-code__attr">aria-label</span>=<span class="rui-doc-code__val">"Page 1"</span>&gt;1&lt;/<span class="rui-doc-code__tag">button</span>&gt;
+  &lt;<span class="rui-doc-code__tag">button</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-pagination__item"</span> <span class="rui-doc-code__attr">data-page</span>=<span class="rui-doc-code__val">"2"</span> <span class="rui-doc-code__attr">aria-label</span>=<span class="rui-doc-code__val">"Page 2"</span>&gt;2&lt;/<span class="rui-doc-code__tag">button</span>&gt;
+  &lt;<span class="rui-doc-code__tag">span</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-pagination__gap"</span> <span class="rui-doc-code__attr">aria-hidden</span>=<span class="rui-doc-code__val">"true"</span>&gt;…&lt;/<span class="rui-doc-code__tag">span</span>&gt;
+&lt;/<span class="rui-doc-code__tag">nav</span>&gt;</code></pre>
+  <div class="rui-doc-example__foot"><span></span><button class="rui-btn rui-btn--sm rui-btn--ghost" data-rui-copy="rui-code-35"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8.5" y="8.5" width="12" height="12" rx="2.2"/><path d="M15.5 5.5H6a2.5 2.5 0 0 0-2.5 2.5v9.5"/></svg> Copy</button></div>
+</div>
+</div>
+<div class="rui-doc-block">
+<h3 class="rui-doc-block__title">Divider and theme toggle</h3>
+<div class="rui-doc-example">
+  <div class="rui-doc-demo rui-doc-demo--plain">
+    <div style="width:100%;max-width:420px">
+      <hr class="rui-divider" style="margin:0 0 20px">
+      <div class="rui-divider rui-divider--labelled" style="margin:0 0 20px">Everything below is archived</div>
+      <div class="rui-doc-row">
+        <span class="rui-small rui-muted">Appearance</span>
+        <span class="rui-divider rui-divider--vertical" aria-hidden="true"></span>
+        <div class="rui-theme-toggle" data-rui-theme-toggle aria-label="Colour theme">
+          <button class="rui-theme-toggle__opt" data-theme-value="light" aria-label="Light" data-rui-tooltip="Light"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M2.5 12h2M19.5 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4"/></svg></button>
+          <button class="rui-theme-toggle__opt" data-theme-value="dark" aria-label="Dark" data-rui-tooltip="Dark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.2A8.2 8.2 0 0 1 9.8 4 8.4 8.4 0 1 0 20 14.2Z"/></svg></button>
+          <button class="rui-theme-toggle__opt" data-theme-value="system" aria-label="Match system" data-rui-tooltip="Match system"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="4" width="19" height="13" rx="2"/><path d="M8.5 20.5h7M12 17v3.5"/></svg></button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <pre class="rui-doc-code" id="rui-code-36" tabindex="0"><code>&lt;<span class="rui-doc-code__tag">hr</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-divider"</span>&gt;
+&lt;<span class="rui-doc-code__tag">div</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-divider rui-divider--labelled"</span>&gt;Everything below is archived&lt;/<span class="rui-doc-code__tag">div</span>&gt;
+
+&lt;<span class="rui-doc-code__tag">div</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-theme-toggle"</span> data-rui-theme-toggle <span class="rui-doc-code__attr">aria-label</span>=<span class="rui-doc-code__val">"Colour theme"</span>&gt;
+  &lt;<span class="rui-doc-code__tag">button</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-theme-toggle__opt"</span> <span class="rui-doc-code__attr">data-theme-value</span>=<span class="rui-doc-code__val">"light"</span> <span class="rui-doc-code__attr">aria-label</span>=<span class="rui-doc-code__val">"Light"</span>&gt;&lt;<span class="rui-doc-code__tag">svg</span>&gt;…&lt;/<span class="rui-doc-code__tag">svg</span>&gt;&lt;/<span class="rui-doc-code__tag">button</span>&gt;
+  &lt;<span class="rui-doc-code__tag">button</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-theme-toggle__opt"</span> <span class="rui-doc-code__attr">data-theme-value</span>=<span class="rui-doc-code__val">"dark"</span> <span class="rui-doc-code__attr">aria-label</span>=<span class="rui-doc-code__val">"Dark"</span>&gt;&lt;<span class="rui-doc-code__tag">svg</span>&gt;…&lt;/<span class="rui-doc-code__tag">svg</span>&gt;&lt;/<span class="rui-doc-code__tag">button</span>&gt;
+  &lt;<span class="rui-doc-code__tag">button</span> <span class="rui-doc-code__attr">class</span>=<span class="rui-doc-code__val">"rui-theme-toggle__opt"</span> <span class="rui-doc-code__attr">data-theme-value</span>=<span class="rui-doc-code__val">"system"</span> <span class="rui-doc-code__attr">aria-label</span>=<span class="rui-doc-code__val">"Match system"</span>&gt;&lt;<span class="rui-doc-code__tag">svg</span>&gt;…&lt;/<span class="rui-doc-code__tag">svg</span>&gt;&lt;/<span class="rui-doc-code__tag">button</span>&gt;
+&lt;/<span class="rui-doc-code__tag">div</span>&gt;</code></pre>
+  <div class="rui-doc-example__foot"><span></span><button class="rui-btn rui-btn--sm rui-btn--ghost" data-rui-copy="rui-code-36"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8.5" y="8.5" width="12" height="12" rx="2.2"/><path d="M15.5 5.5H6a2.5 2.5 0 0 0-2.5 2.5v9.5"/></svg> Copy</button></div>
+</div>
+</div>
+</section>
+  </main>
+</div>
+
+<footer class="rui-doc-foot">
+  <p style="margin:0 0 6px">Refero UI — built as plain HTML, CSS and JavaScript. Tokens, hairlines, shadows, tracking and motion follow the measured target specification.</p>
+  <p style="margin:0">Type is Instrument Sans and Instrument Serif. Screenshot artwork on this page is inline SVG, so nothing here needs a network.</p>
+</footer>
+
+<div class="rui-palette-overlay" id="cmdk" data-rui-palette hidden>
+  <div class="rui-palette" role="dialog" aria-modal="true" aria-label="Command palette">
+    <div class="rui-palette__search">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/></svg>
+      <input class="rui-palette__input" data-rui-palette-input type="text" placeholder="Type a command or search…" aria-label="Type a command or search">
+    </div>
+    <ul class="rui-palette__list" id="rui-palette-list" role="listbox" aria-label="Commands">
+        <li class="rui-palette__group" role="presentation" data-rui-palette-group>Navigate</li>
+        <li class="rui-palette__item" role="option" aria-selected="false" data-keywords="library browse" data-value="Go to library"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="3.5" width="7" height="7" rx="1.6"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.6"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.6"/><rect x="13.5" y="13.5" width="7" height="7" rx="1.6"/></svg><span>Go to library</span><span class="rui-palette__hint">G L</span></li>
+        <li class="rui-palette__item" role="option" aria-selected="false" data-keywords="collections saved" data-value="Go to collections"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.5 4h11v16.2l-5.5-3.7-5.5 3.7V4Z"/></svg><span>Go to collections</span><span class="rui-palette__hint">G C</span></li>
+        <li class="rui-palette__item" role="option" aria-selected="false" data-keywords="settings preferences account" data-value="Go to settings"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 14.5a1.6 1.6 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.6 1.6 0 0 0-2.7 1.1v.3a2 2 0 1 1-4 0v-.2a1.6 1.6 0 0 0-2.8-1.1l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.6 1.6 0 0 0-1.1-2.7h-.3a2 2 0 1 1 0-4h.2a1.6 1.6 0 0 0 1.1-2.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.6 1.6 0 0 0 2.7-1.1v-.3a2 2 0 1 1 4 0v.2a1.6 1.6 0 0 0 2.8 1.1l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.6 1.6 0 0 0 1.1 2.7h.3a2 2 0 1 1 0 4h-.2a1.6 1.6 0 0 0-1.4 1.1Z"/></svg><span>Go to settings</span><span class="rui-palette__hint">G S</span></li>
+        <li class="rui-palette__group" role="presentation" data-rui-palette-group>Actions</li>
+        <li class="rui-palette__item" role="option" aria-selected="false" data-keywords="create new collection folder" data-value="New collection"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5.5v13M5.5 12h13"/></svg><span>New collection</span><span class="rui-palette__hint">N</span></li>
+        <li class="rui-palette__item" role="option" aria-selected="false" data-keywords="import add url capture" data-value="Import from URL"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v10.5M7.5 10.5 12 15l4.5-4.5"/><path d="M4.5 19.5h15"/></svg><span>Import from URL</span><span class="rui-palette__hint">I</span></li>
+        <li class="rui-palette__item" role="option" aria-selected="false" data-keywords="invite team member share" data-value="Invite a teammate"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="3.8"/><path d="M4.5 20.2a7.5 7.5 0 0 1 15 0"/></svg><span>Invite a teammate</span></li>
+        <li class="rui-palette__group" role="presentation" data-rui-palette-group>Appearance</li>
+        <li class="rui-palette__item" role="option" aria-selected="false" data-keywords="theme dark light appearance" data-value="Toggle dark mode"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.2A8.2 8.2 0 0 1 9.8 4 8.4 8.4 0 1 0 20 14.2Z"/></svg><span>Toggle dark mode</span></li>
+        <li class="rui-palette__item" role="option" aria-selected="false" data-keywords="density columns layout zoom" data-value="Increase grid density"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3 8.5 4.8L12 12.6 3.5 7.8 12 3Z"/><path d="m3.5 12.4 8.5 4.8 8.5-4.8"/><path d="m3.5 16.6 8.5 4.8 8.5-4.8"/></svg><span>Increase grid density</span></li>
+    </ul>
+    <p class="rui-palette__empty" data-rui-palette-empty hidden>No commands match that search.</p>
+    <div class="rui-palette__footer">
+      <span><kbd class="rui-kbd">↑</kbd><kbd class="rui-kbd">↓</kbd> navigate</span>
+      <span><kbd class="rui-kbd">↵</kbd> run</span>
+      <span><kbd class="rui-kbd">Esc</kbd> close</span>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
